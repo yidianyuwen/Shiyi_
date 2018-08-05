@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。">
+<meta name="description" content="fullpage的基本使用            	* { 		margin: 0; 		padding: 0; 	}              第1屏   第2屏   第3屏   第4屏   第5屏           //3. 初始化fullpage   $(&quot;.fullpage&quot;).fullpage({     //配置参数     //每一屏幕的背景色     secti">
 <meta property="og:type" content="website">
 <meta property="og:title" content="嗯，一点余温">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta property="og:url" content="http://yoursite.com/Resume/04-fullpage的基本使用.html">
 <meta property="og:site_name" content="嗯，一点余温">
-<meta property="og:description" content="凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。">
+<meta property="og:description" content="fullpage的基本使用            	* { 		margin: 0; 		padding: 0; 	}              第1屏   第2屏   第3屏   第4屏   第5屏           //3. 初始化fullpage   $(&quot;.fullpage&quot;).fullpage({     //配置参数     //每一屏幕的背景色     secti">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-25T03:12:15.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嗯，一点余温">
-<meta name="twitter:description" content="凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。">
+<meta name="twitter:description" content="fullpage的基本使用            	* { 		margin: 0; 		padding: 0; 	}              第1屏   第2屏   第3屏   第4屏   第5屏           //3. 初始化fullpage   $(&quot;.fullpage&quot;).fullpage({     //配置参数     //每一屏幕的背景色     secti">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/Resume/04-fullpage的基本使用.html"/>
 
 
 
 
 
-  <title>归档 | 嗯，一点余温</title>
+  <title> | 嗯，一点余温</title>
   
 
 
@@ -153,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,111 +248,87 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-      <span class="archive-page-counter">
-        
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
         
         
           
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>fullpage的基本使用</title>
 
-      
+  <link rel="stylesheet" href="fullpage-css/jquery.fullpage.css">
+  
+  <style>
 
-        
-        
-        
+	* {
+		margin: 0;
+		padding: 0;
+	}
 
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+  </style>
 
-        
+</head>
+<body>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/zh-cn/2017/12/27/HTML/" itemprop="url">
-              
-                <span itemprop="name">HTML</span>
-              
-            </a>
-        
-      </h2>
+<!--2. 基本结构-->
+<div class="fullpage">
+  <div class="section">第1屏</div>
+  <div class="section">第2屏</div>
+  <div class="section">第3屏</div>
+  <div class="section">第4屏</div>
+  <div class="section">第5屏</div>
+</div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-27T09:20:47+08:00"
-              content="2017-12-27" >
-          12-27
-        </time>
+
+<!--1. 引入文件-->
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.fullpage.js"></script>
+<script>
+
+  //3. 初始化fullpage
+  $(".fullpage").fullpage({
+    //配置参数
+    //每一屏幕的背景色
+    sectionsColor:["yellow", "green", "pink", "purple", "skyblue"],
+    //设置内容不垂直居中
+    verticalCentered:false,
+    //显示小圆点
+    navigation:true
+  });
+
+</script>
+
+</body>
+</html>
+        
       </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/zh-cn/2017/10/28/Shiyi/" itemprop="url">
-              
-                <span itemprop="name">一点余温</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-28T01:12:29+08:00"
-              content="2017-10-28" >
-          10-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
+      
     </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -359,6 +336,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -591,6 +572,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
