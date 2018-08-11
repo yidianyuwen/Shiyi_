@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 7px #1E92FB, 0 0 4px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: transparent;    /*上边框颜色*/
+        border-left-color: transparent;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="移动Web," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="移动Web移动web基础移动端开发现状移动端的浏览器与pc端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等 国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。 因此在移动端，css3属性只需要加webkit前缀即可。 移动端设备尺寸不一样(">
+<meta name="keywords" content="移动Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动Web">
+<meta property="og:url" content="http://yoursite.com/zh-cn/2017/07/29/移动Web/index.html">
+<meta property="og:site_name" content="嗯，一点余温">
+<meta property="og:description" content="移动Web移动web基础移动端开发现状移动端的浏览器与pc端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等 国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。 因此在移动端，css3属性只需要加webkit前缀即可。 移动端设备尺寸不一样(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-11T05:51:15.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动Web">
+<meta name="twitter:description" content="移动Web移动web基础移动端开发现状移动端的浏览器与pc端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等 国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。 因此在移动端，css3属性只需要加webkit前缀即可。 移动端设备尺寸不一样(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/zh-cn/2017/07/29/移动Web/"/>
+
+
+
+
+
+  <title>移动Web | 嗯，一点余温</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?01076d8c1ebce03ed408a2a36a23aa85";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嗯，一点余温</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Shiyi_</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zh-cn/2017/07/29/移动Web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiyi_">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗯，一点余温">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动Web</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T22:49:07+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动Web/" itemprop="url" rel="index">
+                    <span itemprop="name">移动Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="移动Web"><a href="#移动Web" class="headerlink" title="移动Web"></a>移动Web</h1><h2 id="移动web基础"><a href="#移动web基础" class="headerlink" title="移动web基础"></a>移动web基础</h2><h3 id="移动端开发现状"><a href="#移动端开发现状" class="headerlink" title="移动端开发现状"></a>移动端开发现状</h3><p>移动端的浏览器与pc端不同</p>
+<p>谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</p>
+<p>国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</p>
+<p>因此在移动端，css3属性只需要加webkit前缀即可。</p>
+<p>移动端设备尺寸不一样(尺寸非常多，碎片化很严重)</p>
+<p>Android： 320<em>480 480</em>800  540<em>960 720</em>1280 1080*1920 2k屏 4k屏</p>
+<p>iphpne：  640<em>960 640</em>1136 750<em>1334 1242</em>2208</p>
+<h3 id="移动端开发分类"><a href="#移动端开发分类" class="headerlink" title="移动端开发分类"></a>移动端开发分类</h3><p>三种开发各有优缺点，具体用什么需要根据实际情况而定，比如预算，app注重功能还是内容等。</p>
+<ul>
+<li>原生app（native app）</li>
+</ul>
+<p>原生app是基于操作系统的开发，比如安卓，ios，windows phone,他们只能在各自的操作系统上运行。</p>
+<p>优点：</p>
+<ol>
+<li>可以访问操作系统，获取更多的资源（gps，摄像头，传感器，麦克风等）</li>
+<li>速度快，性能高，用户体验好</li>
+<li>可以离线使用</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>开发成本高</li>
+<li>需要安装和更新，更新与发布需要审核。</li>
+</ol>
+<ul>
+<li>混合app（Hybrid app）</li>
+</ul>
+<p>Web应用使用H5C3开发页面，为浏览器设计的基于web的应用，可以在各种智能设备的手机浏览器上运行。不需要安装即可运行。</p>
+<p>优点：</p>
+<ol>
+<li>支持设备广泛</li>
+<li>开发成本低（使用）</li>
+<li>可以随时上线与更新，无需审核</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验极度依赖网速</li>
+<li>要求联网</li>
+<li>无法获取手机的资源（gps，摄像头）</li>
+</ol>
+<ul>
+<li>web应用（webApp）</li>
+</ul>
+<p>Hybrid App是指介于web-app、native-app这两者之间的app,它虽然看上去是一个Native App，但只有一个UI WebView，里面访问的是一个Web App。（淘宝、京东、手机百度）</p>
+<p>Hybird App说白了就是使用了Native app的壳，里面其实还是HTML5页面。</p>
+<p>优点：</p>
+<ol>
+<li>开发成本和难度更低，兼容多个平台</li>
+<li>也可以访问手机的操作系统资源。</li>
+<li>更新维护更方便</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验相比原生app稍差。</li>
+<li>性能依赖于网速</li>
+</ol>
+<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><h3 id="屏幕尺寸"><a href="#屏幕尺寸" class="headerlink" title="屏幕尺寸"></a>屏幕尺寸</h3><p>通常我们所指的屏幕尺寸，实际上指的是屏幕对角线的长度（一般用英寸来度量）</p>
+<p>1英寸 = 2.54厘米</p>
+<h3 id="屏幕分辨率"><a href="#屏幕分辨率" class="headerlink" title="屏幕分辨率"></a>屏幕分辨率</h3><p>分辨率则一般用像素来度量，表示屏幕水平和垂直方向的像素数，例如1920*1080指的是屏幕垂直方向和水平方向分别有1920和1080个像素点而构成。</p>
+<p>像素：指计算机显示设备中的最小单位，即一个像素点的大小。每一个像素点可以理解为就是屏幕上的一个发光点。</p>
+<h3 id="像素密度ppi"><a href="#像素密度ppi" class="headerlink" title="像素密度ppi"></a>像素密度ppi</h3><p>PPI（Pixels Per Inch）值来表示屏幕每英寸的像素数；利用 勾股定理 我们可以计算得出PPI</p>
+<p>ppi=根号下（横向像素数平方+纵向像素数平方）/屏幕尺寸（对角线英寸）</p>
+<p>PPI值的越大说明单位尺寸里所能容纳的像素数量就越多，所能展现画面的品质也就越精细，反之就越粗糙。</p>
+<p>结论：当PPI 越大，展示的画质越精细。</p>
+<h2 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h2><p>随着技术发展，设备不断更新，出现了不同PPI的屏幕共存的状态,给我们开发带来的问题；</p>
+<p>做为用户是不会关心这些细节的，他们只是希望在不同PPI的设备上看到的图像内容差不多大小，所以这时我们需要一个新的单位，这个新的单位能够保证图像内容在不同的PPI设备看上去大小应该差不多，这就是独立像素,也叫（设备无关像素），在IOS设备上叫PT，Android设备上叫DP，在css中，叫PX。</p>
+<p>获取设备的像素比：<code>window.devicePixelRatio</code> 物理像素与独立像素的比值</p>
+<p>在css中设置宽高，用px单位后，会自适应各种ppi屏幕；然后通过视口来缩放实际大小；</p>
+<p><code>window.devicePixelRatio;</code> 物理像素与独立像素的比值；获取设备的像素比，电脑是1</p>
+<p>逻辑分辨率</p>
+<h2 id="2倍图与3倍图"><a href="#2倍图与3倍图" class="headerlink" title="2倍图与3倍图"></a>2倍图与3倍图</h2><p>以后同学在工作的过程中，从UI那拿到的设计图通常都是640的设计图或者是750的设计图.</p>
+<p>把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。</p>
+<p>设备像素比devicePixelRatio：即像素的压缩比例</p>
+<p>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如2倍图或者3倍图。</p>
+<h2 id="视口viewport"><a href="#视口viewport" class="headerlink" title="视口viewport"></a>视口viewport</h2><p>问题：一个电脑上的网站，在手机端访问，效果是什么样的？</p>
+<p>iPhone5的设备宽度只有320px，一张宽度为640px的图片在手机端访问，显示的效果是什么？</p>
+<ol>
+<li>在手机端，html的大小都是980px，为什么？<ul>
+<li>这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）。</li>
+</ul>
+</li>
+<li>视口<ul>
+<li>在pc端，html的大小默认是继承了浏览器的宽度，即浏览器多宽，html的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与html之间的一个东西，视口的宽度默认定死了980px，因此html的宽度默认就是980px，视口的特点是能够根据设备的宽度进行缩放。</li>
+</ul>
+</li>
+<li>视口设置。<ul>
+<li>对于现在的移动端页面来说，视口默认为980px肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看。</li>
+</ul>
+</li>
+</ol>
+<p>视口参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//width 设置视口的宽度</span></span><br><span class="line"><span class="comment">//width=device-width   设置视口宽度为设备的宽度（常用）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">//initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">//user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">//maximum-scale=1.0  可以不设置，因为都禁止用户缩放了。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">//minimum-scale=1.0  不设置，因为都禁用用户缩放了。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//标准写法：</span></span><br><span class="line"><span class="comment">//快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h2><p>移动端的特点</p>
+<ul>
+<li>手机端的兼容性问题比PC端小很多，因为手机端的浏览器版本比较新</li>
+<li>手机端屏幕比较小，能够放的内容比较少。</li>
+</ul>
+<p>问题：布局的时候怎么解决屏幕大小不一致的问题？</p>
+<ul>
+<li>PC端，固定版心，让所有分辨率的电脑的版心都是一样的，比如京东</li>
+<li>移动端：移动端无法设置版心，因为移动端的设备屏幕本身就小，设置版心不合适。因此移动端大多会采用流式布局（百分比布局）</li>
+</ul>
+<p>流式布局，也叫百分比布局，是移动端开发中经常使用的布局方式之一。</p>
+<p>流式布局的特征：</p>
+<ul>
+<li>宽度自适应，高度写死，并不是百分百还原设计图</li>
+<li>图标都是固定死大小的，包括字体等也是固定死的。并不是所有的东西都是自适应的。</li>
+<li>一些大的图片，设置宽度为百分比自适应即可，随着屏幕大小进行变化</li>
+</ul>
+<p>流式布局无法做到所有设备都非常逼真的还原设计图，有些设备显示效果不是特别的好看。但是流式布局是移动端非常常用的一种布局方式，比较简单，需要掌握（携程、京东)</p>
+<p>经典的流式布局：</p>
+<ul>
+<li>左侧固定，右侧自适应</li>
+<li>右侧固定，左侧自适应</li>
+<li>两侧固定，中间自适应（圣杯布局，双飞翼布局）</li>
+<li>等分布局</li>
+<li>浮动的盒子要先渲染出来，自适应的盒子不能写宽度，后渲染，用overflow: hidden；</li>
+</ul>
+<h2 id="BFC-块级格式上下文"><a href="#BFC-块级格式上下文" class="headerlink" title="BFC 块级格式上下文"></a>BFC 块级格式上下文</h2><p>BFC：块级格式化上下文，Block formatting context；</p>
+<p>BFC：块级格式上下文，独立的盒子，不允许子元素去影响到外界的元素；</p>
+<p>触发bfc的条件：</p>
+<ul>
+<li><code>float</code>的值不为none。</li>
+<li><code>overflow</code>的值为auto,scroll或hidden。</li>
+<li><code>display</code>的值为table-cell, table-caption, inline-block中的任何一个。</li>
+<li><code>position</code>的值不为relative和static。</li>
+</ul>
+<h2 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h2><ul>
+<li>父盒子定高</li>
+<li>额外标签法</li>
+<li>使用伪元素 单伪元素 双伪元素<ul>
+<li>clear: both;–图像的左侧和右侧均不允许出现浮动元素；</li>
+</ul>
+</li>
+<li><code>overflow:hidden</code> 触发了bfc</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浮动与定位元素：默认是在元素原先的位置上进行的。</p>
+<h2 id="重绘与回流（重排）"><a href="#重绘与回流（重排）" class="headerlink" title="重绘与回流（重排）"></a>重绘与回流（重排）</h2><h3 id="重绘与回流相关概念"><a href="#重绘与回流相关概念" class="headerlink" title="重绘与回流相关概念"></a>重绘与回流相关概念</h3><p>回流（reflow）与重绘（repaint），在性能优化的时候，经常会提起，因为涉及到浏览器底层的渲染，所以掌握的童鞋并不多，但是面试经常被提及。而且在解决一些bug上，也能派上用场。</p>
+<p>在讨论页面重绘、回流之前。需要对页面的呈现流程有些了解，页面是怎么把html结合css等显示到浏览器上的，下面的流程图显示了浏览器对页面的呈现的处理流程。可能不同的浏览器略微会有些不同。但基本上都是类似的。</p>
+<ol>
+<li>解析HTML以构建DOM树 浏览器把获取到的HTML代码解析成1个DOM树，HTML中的每个标签都是DOM树中的1个节点。</li>
+<li>解析css样式：浏览器把所有样式(用户定义的CSS和用户代理)解析成样式结构体 ，在解析的过程中会去掉浏览器不能识别的样式，比如IE会去掉-moz开头的样式，而FF会去掉_开头的样式。</li>
+<li>构建渲染树：DOM Tree 和样式结构体组合后构建render tree，render tree不同于DOM树，render tree能识别样式，render tree中每个NODE都有自己的style，而且 render tree不包含隐藏的节点 (比如display:none的节点，还有head节点)，一旦render tree构建完毕后，浏览器就可以根据render tree来绘制页面了。</li>
+<li>布局渲染树：从根节点递归调用，计算每一个元素的大小、位置等，给每个节点所应该出现在屏幕上的精确坐标。 +</li>
+<li>绘制渲染树：遍历渲染树，每个节点将使用UI后端层来绘制。</li>
+</ol>
+<p>重绘(repaint)</p>
+<p>当元素的样式属性改变，这些属性值影响自己，不会改变布局和其他元素，就会重绘，比如背景颜色；</p>
+<p>回流（重排）(reflow)</p>
+<p>当元素的样式属性改变，这些样式属性会改变布局和其他元素时，就会回流；比如大小，位置等；</p>
+<p>每个页面至少会又一次回流+重绘；</p>
+<ol>
+<li>添加或者删除可见的DOM元素；</li>
+<li>元素位置改变；</li>
+<li>元素尺寸改变——边距、填充、边框、宽度和高度</li>
+<li>内容改变——比如文本改变或者图片大小改变而引起的计算值宽度和高度改变；</li>
+<li>页面渲染初始化；</li>
+<li>浏览器窗口尺寸改变——resize事件发生时；</li>
+</ol>
+<p>【<strong>回流必然会重绘；</strong>】</p>
+<h3 id="聪明的浏览器"><a href="#聪明的浏览器" class="headerlink" title="聪明的浏览器"></a>聪明的浏览器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="built_in">document</span>.body.style;</span><br><span class="line">s.padding = <span class="string">"2px"</span>; <span class="comment">// 回流+重绘</span></span><br><span class="line">s.border = <span class="string">"1px solid red"</span>; <span class="comment">// 再一次 回流+重绘</span></span><br><span class="line">s.color = <span class="string">"blue"</span>; <span class="comment">// 再一次重绘</span></span><br><span class="line">s.backgroundColor = <span class="string">"#ccc"</span>; <span class="comment">// 再一次 重绘</span></span><br><span class="line">s.fontSize = <span class="string">"14px"</span>; <span class="comment">// 再一次 回流+重绘</span></span><br><span class="line"><span class="comment">// 添加node，再一次 回流+重绘</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">'abc!'</span>));</span><br></pre></td></tr></table></figure>
+<p>从上个实例代码中可以看到几行简单的JS代码就引起了6次左右的回流、重绘。而且我们也知道回流的花销也不小，如果每句JS操作都去回流重绘的话，浏览器可能就会受不了。所以很多浏览器都会优化这些操作，浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
+<p>回流队列：等到数量或者时间满足时回流；</p>
+<p>必然引起回流的属性，提前刷新回流队列</p>
+<p>虽然有了浏览器的优化，但有时候我们写的一些代码可能会强制浏览器提前flush队列，这样浏览器的优化可能就起不到作用了。当你请求向浏览器请求一些 style信息的时候，就会让浏览器flush队列，比如：</p>
+<ol>
+<li>offsetTop offsetLeft offsetWidth offsetHeight</li>
+<li>scrollTop / Left / Width / Height</li>
+<li>clientTop / Left / Width / Height</li>
+<li>width height</li>
+<li>请求了<code>getComputedStyle()</code>, 或者 IE的 <code>currentStyle</code></li>
+</ol>
+<h3 id="优化性能"><a href="#优化性能" class="headerlink" title="优化性能"></a>优化性能</h3><p>减少回流与重绘的次数，就需要简单对渲染树的操作。</p>
+<ul>
+<li>直接使用className修改样式，少用style设置样式</li>
+<li>让要操作的元素进行”离线处理”，处理完后一起更新<ul>
+<li>使用<code>DocumentFragment</code>进行缓存操作,引发一次回流和重绘</li>
+<li>使用<code>display:none</code>技术，只引发两次回流和重绘;</li>
+</ul>
+</li>
+<li>将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素为动画的 HTML 元素，例如动画，那么修改他们的 CSS 是会大大减小 reflow 。</li>
+<li>完成功能是前提，在完成功能的情况下想着优化代码</li>
+</ul>
+<h3 id="touch事件"><a href="#touch事件" class="headerlink" title="touch事件"></a>touch事件</h3><ul>
+<li>移动端新增的4个事件，PC端无效（触摸屏？）</li>
+<li>touchstart 手指触到触摸屏上触发</li>
+<li>touchmove 手指在触摸屏上移动时触发</li>
+<li>touchend 手指离开触摸屏时触发；由于手指离开，所以只能通过<code>e.changedTouches</code>来获取手指离开时的位置；</li>
+<li>touchcancel 系统取消触摸事件时触发，譬如电话来了，弹出去用来设置暂停；</li>
+</ul>
+<p>touch事件对象</p>
+<ul>
+<li><code>e.touches</code> 记录当前屏幕上的手指数量，是一个伪数组；</li>
+<li><code>e.targetTouches</code> 记录当前元素上的手指数量，是一个伪数组；</li>
+<li><code>e.changedTouches</code> 记录触摸时发生改变的手指；是一个伪数组；touchend事件手指离开时，<code>e.touches</code> 和 <code>e.targetTouches</code> 没有手指记录；</li>
+<li>3个手指信息里包含：<ul>
+<li>clientX / clientY 触摸点位于浏览器窗口的位置</li>
+<li>pageX / pageY 触摸点位于页面的位置</li>
+<li>screenX / screenY 触摸点位于屏幕的位置</li>
+</ul>
+</li>
+</ul>
+<h2 id="IScroll插件的使用"><a href="#IScroll插件的使用" class="headerlink" title="IScroll插件的使用"></a>IScroll插件的使用</h2><ul>
+<li>支持jQuery，也支持原生JavaScript；</li>
+<li><code>new IScroll(&quot;父盒子&quot;)</code>–子盒子滚动要嵌套在父盒子里；子盒子要比父盒子大；</li>
+<li>如果有图片的高度要计算，需要等待图片加载完成–load事件；</li>
+</ul>
+<h2 id="Zepto类库"><a href="#Zepto类库" class="headerlink" title="Zepto类库"></a>Zepto类库</h2><ul>
+<li>Zepto主要应用于移动端；</li>
+<li>Zepto比jQuery轻量；</li>
+<li>Zepto功能比jQuery少；</li>
+<li>Zepto新增了touch相关事件，使用touch事件封装的；</li>
+<li>click事件在移动端会有300ms的延迟<ul>
+<li>判断用户是否双击，（07年提出双击放大）</li>
+<li>Zepto的tap事件不会延时；</li>
+<li>设置视口click不会有延时；</li>
+</ul>
+</li>
+</ul>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h3 id="响应式布局的概念"><a href="#响应式布局的概念" class="headerlink" title="响应式布局的概念"></a>响应式布局的概念</h3><p>响应式布局（respond layout）是Ethan Marcotte在2010年5月份提出的一个概念，简而言之，就是一个网站能够兼容多个终端（手机、平板、pc电脑、手表） ——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的。</p>
+<p>为什么要有响应式布局？</p>
+<ul>
+<li>在移动互联日益成熟的时候，在PC端开发的网页已经无法满足移动设备的要求。</li>
+<li>通常的做法是针对移动端单独做一套特定的版本。</li>
+<li>如果终端越来越多，那么需要开发的版本就会越来越多（大屏设备的普及）</li>
+<li>响应式布局 ：一个网站能够兼容多个终端（节约开发成本）</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>面对不同分辨率设备灵活性强</li>
+<li>能够快捷解决多设备显示适应问题</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>兼容各种设备工作量大，效率低下</li>
+<li>代码累赘，会出现隐藏无用的元素，加载时间加长</li>
+<li>其实这是一种折中性质的设计解决方案，多方面因素影响而达不到最佳效果</li>
+<li>一定程度上改变了网站原有的布局结构，会出现用户混淆的情况</li>
+</ul>
+<p>响应式开发现状：</p>
+<ul>
+<li>如果已经存在PC的网站了，那么一般不会使用响应式开发，而是针对移动端再开发一套系统（比如京东、淘宝）</li>
+<li>在新建站点 上采用响应式开发的越来越多。</li>
+<li>在国内，响应式开发还不是特别的流行。但响应式开发是大势所趋，会越来越流行。</li>
+</ul>
+<p>响应式布局</p>
+<ul>
+<li>一个网站兼容不同终端；</li>
+<li>根据不同的屏幕大小来设置不同的样式；</li>
+<li>通过JS来判断实现；</li>
+<li>媒体查询，css3新增属性</li>
+</ul>
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">需求：</span></span><br><span class="line"><span class="comment">    大屏设备(&gt;1200px)   版心：1170px   背景色：红色</span></span><br><span class="line"><span class="comment">    中屏设备(992-1200)  版心：970px    背景色：蓝色</span></span><br><span class="line"><span class="comment">    小屏设备(768-992)   版心：750px    背景色：黄色</span></span><br><span class="line"><span class="comment">    超小屏设备(&lt;768px)  版心：100%     背景色：绿色</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>响应式开发的原理：使用媒体查询实现不同终端的布局和样式的切换。</p>
+<p>媒体查询语法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查询屏幕*/</span></span><br><span class="line">@<span class="keyword">media</span> screen and (条件) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*条件的写法*/</span></span><br><span class="line"><span class="comment">/*min-width:只要屏幕宽度超过这个值的设备样式就能生效*/</span></span><br><span class="line"><span class="comment">/*max-width:只要屏幕宽度小于这个值的设备样式就能生效*/</span></span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">992px</span>) and (max-width: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">768px</span>) and (max-width: <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>弊端：现在只有一个div，要做一套响应式布局，就需要如此多的代码，非常的麻烦，因此我们会更多的借助一些响应式的框架，比如bootstrap。</p>
+<p><code>@media screen and (min-width:970px) and (max-width:1200px) {};</code></p>
+<ul>
+<li>所有中间用空格隔开；</li>
+<li><code>@media</code> 表示媒体查询；</li>
+<li><code>screen</code> 表示查询屏幕宽度；</li>
+<li><code>min-width:970px</code> 屏幕大于这个值生效；</li>
+<li><code>max-width:1200px</code> 屏幕小于这个值生效；</li>
+<li>screen 和第一个 and 可以省略；</li>
+</ul>
+<h2 id="bootstrap框架"><a href="#bootstrap框架" class="headerlink" title="bootstrap框架"></a>bootstrap框架</h2><p>Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。</p>
+<p>基于jQuery的框架</p>
+<p>bootstrap中文网：<a href="http://www.bootcss.com/" target="_blank" rel="noopener">http://www.bootcss.com/</a></p>
+<p>特点：</p>
+<ul>
+<li>组件简洁大方、代码规范精简、界面自定义性强。</li>
+<li>Bootstrap是基于HTML5和CSS3开发的，它在jQuery的基础上进行了更为个性化和人性化的完善，形成一套自己独有的网站风格，并兼容大部分jQuery插件。</li>
+<li>Bootstrap中包含了丰富的Web组件，根据这些组件，可以快速的搭建一个漂亮、功能完备的网站。</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>有自己的生态圈，不断的更新迭代</li>
+<li>提供了一套简洁、直观、强悍的组件</li>
+<li>标准化的HTML+CSS编码规范</li>
+<li>让开发更简单，提高了开发效率。</li>
+<li>扩展性强，虽然界面组件样式已经定义好了，我们还可以自定义，修改默认样式。</li>
+</ul>
+<p>版本：</p>
+<ul>
+<li>2.x.x 停止维护<ul>
+<li>优点：兼容性好</li>
+<li>缺点：代码不够简洁、功能不够完善</li>
+</ul>
+</li>
+<li>3.x.x 目前使用最多<ul>
+<li>优点：稳定，偏向于开发响应式布局，移动设备优先的WEB项目</li>
+<li>缺点：放弃了IE67，对IE8支持但是界面效果不友好</li>
+</ul>
+</li>
+<li>4.x.x 测试阶段</li>
+</ul>
+<h3 id="CSS-reset-和-normalize-css"><a href="#CSS-reset-和-normalize-css" class="headerlink" title="CSS reset 和 normalize.css"></a>CSS reset 和 normalize.css</h3><ul>
+<li>CSS reset：干掉所有的浏览器默认样式，需要使用时自己设置；</li>
+<li>normalize.css：统一所有浏览器的样式，保留了一些默认样式；</li>
+<li>官网：<a href="http://necolas.github.io/normalize.css/" target="_blank" rel="noopener">http://necolas.github.io/normalize.css/</a></li>
+<li>Normalize.css与CSS reset区别：<a href="http://www.cnblogs.com/webpush/p/4974063.html" target="_blank" rel="noopener">http://www.cnblogs.com/webpush/p/4974063.html</a></li>
+</ul>
+<p>Normalize.css是一种CSS reset的替代方案。经过@necolas和@jon_neal花了几百个小时来努力研究不同浏览器的默认样式的差异，这个项目终于变成了现在这样。</p>
+<p>normalize的特点：</p>
+<ul>
+<li>保护有用的浏览器默认样式而不是完全去掉它们</li>
+<li>一般化的样式：为大部分HTML元素提供</li>
+<li>修复浏览器自身的bug并保证各浏览器的一致性</li>
+<li>优化CSS可用性：用一些小技巧</li>
+</ul>
+<p>Normalize.css支持包括手机浏览器在内的超多浏览器，同时对HTML5元素、排版、列表、嵌入的内容、表单和表格都进行了一般化。尽管这个项目基于一般化的原则，但我们还是在合适的地方使用了更实用的默认值。</p>
+<p><code>.container</code> 类用于固定宽度并支持响应式布局的容器。</p>
+<p><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器。</p>
+<p><code>.row</code> 用来抵消 <code>.container</code> 的 <code>padding（15px）</code>；</p>
+<h3 id="栅格系统：-col-XX-YY"><a href="#栅格系统：-col-XX-YY" class="headerlink" title="栅格系统：.col-XX-YY"></a>栅格系统：.col-XX-YY</h3><ul>
+<li>XX：表示在多大屏幕下生效；<ul>
+<li>lg：大屏幕生效，1200px以上</li>
+<li>md：中屏及大屏生效，992px以上</li>
+<li>sm：小屏及中屏、大屏生效，768px以上</li>
+<li>xs：超小屏及小屏、中屏、大屏生效，＜768px</li>
+<li>根据渲染顺序生效；bootstrap的css样式是从大到小，依次向下；</li>
+</ul>
+</li>
+<li>YY：表示占多少格，总共12格；</li>
+<li>推荐从小往大写；</li>
+</ul>
+<h3 id="可以删除的属性"><a href="#可以删除的属性" class="headerlink" title="可以删除的属性"></a>可以删除的属性</h3><ul>
+<li><code>aria</code></li>
+<li><code>src-only</code></li>
+<li><code>role</code></li>
+</ul>
+<h2 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h2><h3 id="Less简介"><a href="#Less简介" class="headerlink" title="Less简介"></a>Less简介</h3><p>Less 是一门CSS预处理语言,它扩展了CSS语言,增加了变量、Mixin、函数等特性。</p>
+<p>Less不是取代CSS的，是在CSS的基础上加入了程序语言的特性，具有可编程性；</p>
+<p>浏览器不直接识别less文件，浏览器只识别css文件，所以我们写了less文件之后，我们需要预先把less文件转换成css文件。</p>
+<p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
+<p>less仅仅是写css的另一种方式，写出来的less文件浏览器也不识别，所以啊，我们写完了less文件，还需要通过less解析器解析成css，最终浏览器引入的还是css文件。</p>
+<h3 id="node-js的安装"><a href="#node-js的安装" class="headerlink" title="node.js的安装"></a>node.js的安装</h3><p>在cmd命令行中输入 <code>node -v</code> 以及 <code>npm -v</code> 查看是否安装成功</p>
+<p>在cmd命令行中输入以下代码：需要联网</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g less</span><br><span class="line"><span class="comment"># -g:全局安装，意味这装了一次，以后就可以直接用less</span></span><br><span class="line">lessc -v</span><br><span class="line"><span class="comment"># 查看less的版本</span></span><br></pre></td></tr></table></figure>
+<h3 id="Less的使用"><a href="#Less的使用" class="headerlink" title="Less的使用"></a>Less的使用</h3><p>浏览器不能识别Less文件，需要编译成为CSS文件；</p>
+<ul>
+<li>1.引入JS文件，让浏览器来编译Less文件<ul>
+<li>需要多引入一个less.js文件</li>
+<li>需要多一次http请求，file协议打开无效</li>
+<li>如果浏览器禁用了js，那么无法生效</li>
+<li>无法实时的看到编译的结果。</li>
+</ul>
+</li>
+<li>2.node.js<ul>
+<li>使用lessc命令：<code>lessc index.less index.css</code></li>
+</ul>
+</li>
+<li>3.配置WebStorm<ul>
+<li>需要node环境</li>
+<li>需要安装lessc命令</li>
+<li>webStorm替代我们执行了lessc命令</li>
+<li>设置</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Program:点击路径选择自动找到；</span><br><span class="line"></span><br><span class="line">Argument:$FileName$ ../css/$FileNameWithoutExtension$.css</span><br><span class="line">../css/$FileNameWithoutExtension$.css；可以不设置，如果设置一定要和下面的路径一样；</span><br><span class="line"></span><br><span class="line">Output paths to refresh:../css/$FileNameWithoutExtension$.css</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.VsCode<ul>
+<li>安装easy less插件</li>
+<li>默认编译在同级目录，可以设置目录</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 设置为与less文件夹同级目录；</span><br><span class="line">"less.compile": &#123;</span><br><span class="line">  "out": "../css/"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>easy less不编译文件设置<ul>
+<li>有时候我们会将多个less文件导入到一个less文件中，有些less文件是不需要编译的；</li>
+<li>在不需要自动编译的less文件第一行 <code>// out: false</code></li>
+<li>插件会识别解析第一行注释，不编译此less文件</li>
+</ul>
+</li>
+<li>5.使用考拉</li>
+</ul>
+<h3 id="Less的语法"><a href="#Less的语法" class="headerlink" title="Less的语法"></a>Less的语法</h3><h4 id="Less变量："><a href="#Less变量：" class="headerlink" title="Less变量："></a>Less变量：</h4><p><code>@变量名:变量值;</code> 直接使用 <code>@变量名</code>；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="variable">@wjs_color:</span><span class="number">#e92322</span>;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">@wjs_color</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="variable">@wjs_color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Less注释"><a href="#Less注释" class="headerlink" title="Less注释"></a>Less注释</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Less的注释，CSS不认识，不会编译到CSS文件中；</span></span><br><span class="line"><span class="comment">/* CSS的注释，Less可以使用，会被编译到CSS文件中； */</span></span><br></pre></td></tr></table></figure>
+<h4 id="mixin混入"><a href="#mixin混入" class="headerlink" title="mixin混入"></a>mixin混入</h4><p>可以直接使用其他类的样式；其他的类也会被编译到CSS文件中；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="comment">//混入</span></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_border</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_danger</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_block</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//混入其他类的样式。</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">  <span class="selector-class">.btn_block</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_danger</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_border</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_danger</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn_block</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：写了很多类，但是都编译到css文件中了，其实我们需要的仅仅是.my_btn这一个类。</p>
+<h4 id="Less函数"><a href="#Less函数" class="headerlink" title="Less函数"></a>Less函数</h4><p>Less函数不会被编译到CSS文件中；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不带参数的函数；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="comment">//不会被编译</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>带参数的函数；使用时必须要传递参数；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">//如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="comment">//传入参数，就不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>带默认值的函数；不传递参数使用默认值，传递参数覆盖默认参数；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>:<span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">//因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="comment">//传入参数，会覆盖1px，也不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用：定义兼容多浏览器的圆角</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>:<span class="number">5px</span>) &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Less嵌套"><a href="#Less嵌套" class="headerlink" title="Less嵌套"></a>Less嵌套</h4><p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
+<p>语法</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="comment">//后代</span></span><br><span class="line">  <span class="selector-class">.son</span>&#123;&#125;</span><br><span class="line">  <span class="comment">//子代</span></span><br><span class="line">  &gt;<span class="selector-class">.son1</span>&#123;&#125;</span><br><span class="line">  <span class="comment">//伪元素</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//交集</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&amp;表示自己（相当于this？）</p>
+<h4 id="Less导入"><a href="#Less导入" class="headerlink" title="Less导入"></a>Less导入</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span>  <span class="string">"header.less"</span></span><br><span class="line"><span class="variable">@import</span> <span class="string">"header"</span></span><br></pre></td></tr></table></figure>
+<h4 id="Less运算"><a href="#Less运算" class="headerlink" title="Less运算"></a>Less运算</h4><p>支持数值的数学运算；</p>
+<p>提供了多种数学相关的方法；<a href="http://www.1024i.com/demo/less/reference.html" target="_blank" rel="noopener">http://www.1024i.com/demo/less/reference.html</a></p>
+<h2 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h2><h3 id="rem和em的区别"><a href="#rem和em的区别" class="headerlink" title="rem和em的区别"></a>rem和em的区别</h3><ul>
+<li>rem（font size of the root element）是指相对于根元素的字体大小的单位。它就是一个相对单位。</li>
+<li>em（font size of the element）是指相对于当前元素的字体大小的单位。它也是一个相对单位。</li>
+<li>它们之间其实很相似，只不过计算的规则一个是依赖根元素，一个是当前元素计算。</li>
+</ul>
+<h3 id="rem的作用"><a href="#rem的作用" class="headerlink" title="rem的作用"></a>rem的作用</h3><p>rem主要用来解决不同大小屏幕的适配，用来等比例适配所有屏幕；</p>
+<p>布局的三种方式</p>
+<p>由于市面上手机种类繁多，导致移动端的屏幕种类非常的混乱，比如有常见的320px 360px 375px 384px 480px 640px等。在开发中，美工一般只会提供750px或者是640px的设计稿，这就要求我们通过一张设计稿能够适配所有的屏幕。通常解决方案如下：</p>
+<ul>
+<li>流式布局（百分比布局）<ul>
+<li>虽然可以让各种屏幕都适配，但是显示效果不是非常的友好，因为只有几个尺寸的手机能够完美的显示出来视觉设计师和交互最想要的效果。但是目前使用流式布局的公司非常多，比如 亚马逊 、京东 、携程</li>
+</ul>
+</li>
+<li>响应式布局<ul>
+<li>响应式布局：响应式这种方式在国内很少有大型企业的复杂性的网站在移动端用这种方法去做，主要原因是工作大，维护性难 。所以一般都是中小型的门户或者博客类站点会采用响应式的方法从PC端页面到移动端页面以及web app直接一步到位，因为这样反而可以节约成本。</li>
+</ul>
+</li>
+<li>rem布局<ul>
+<li>rem能够适配所有的屏幕，与less配合使用效果会更好。目前使用rem布局的有：淘宝 、 苏宁</li>
+</ul>
+</li>
+</ul>
+<h3 id="rem如何设置"><a href="#rem如何设置" class="headerlink" title="rem如何设置"></a>rem如何设置</h3><p>在UI给出设计图后，根据UI的图的宽度，设置基准；</p>
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 宽度为750的设计图，设置基准为100； */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">750px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123;</span><br><span class="line">         <span class="attribute">font-size</span>: <span class="number">100px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>计算方法：<code>基准值 / 设计图宽度 = 屏幕的font-size / 屏幕的大小</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 100 / 750 = X / 640  ===&gt;  X = 100 / 750 * 640 */</span></span><br><span class="line"> @<span class="keyword">media</span> (min-width: <span class="number">640px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123;</span><br><span class="line">         <span class="attribute">font-size</span>: Xpx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据设计图切图的尺寸直接除以基准值，元素的大小，直接就可以写成 rem为单位</li>
+<li><code>实际切图大小 / 基准值 = Yrem</code></li>
+<li>好处：不需要再计算倍图的比例，直接除以基准值即可；</li>
+<li>less的写法：<code>width: 实际大小rem（不要写px,直接写rem）/基准值（一般用@base表示）;</code></li>
+</ul>
+<h3 id="rem布局"><a href="#rem布局" class="headerlink" title="rem布局"></a>rem布局</h3><p>rem是根据根元素（html）的字体大小来设置元素的大小；</p>
+<p>因为rem的基准点是根元素html的字体大小，因此我们只需要设置不同屏幕的html的font-size大小不一样就可以达到不同屏幕的适配了。</p>
+<p>使用媒体查询来改变html的font-size；</p>
+<p>搭配less设置媒体查询的条件</p>
+<p>css媒体查询样式，缺点需要自己计算每个屏幕的值；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">360px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">384px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">19.2px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">414px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20.7px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>搭配less可以使用数学运算来计算；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给不同屏幕的html设置不同的fontSize</span></span><br><span class="line"><span class="comment">//320 360 375 384 400 414 424 480 540 720 750</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设计图的大小</span></span><br><span class="line"><span class="variable">@designWidth:</span> <span class="number">750</span>;</span><br><span class="line"><span class="comment">//基准值</span></span><br><span class="line"><span class="variable">@base:</span> <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义了一个函数</span></span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="variable">@screenWidth</span>:<span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="variable">@screenWidth</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: round(<span class="variable">@base</span>/<span class="variable">@designWidth</span> * <span class="variable">@screenWidth</span>, <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.adapter</span>();</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">360px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">375px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">384px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">400px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">414px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">424px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">480px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">540px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">720px</span>);</span><br><span class="line"><span class="selector-class">.adapter</span>(<span class="number">750px</span>);</span><br></pre></td></tr></table></figure>
+<p>自己设置js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：设置fontSize的这一段js需要放到body的前面，目的：在所有的标签加载之间就应该先把html的字体大小给确定了。</span></span><br><span class="line"><span class="comment">//给window注册一个resize，获取到当前屏幕的大小</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">response</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">  <span class="keyword">if</span> (pageWidth &lt;= <span class="number">320</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">320</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (pageWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">750</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//设计图的大小</span></span><br><span class="line">  <span class="keyword">var</span> designWidth = <span class="number">750</span>;</span><br><span class="line">  <span class="keyword">var</span> base = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//当前屏幕的fontSize / 当前屏幕的大小 = 基准值 / 设计图的大小</span></span><br><span class="line">  <span class="built_in">document</span>.documentElement.style.fontSize = base / designWidth * pageWidth + <span class="string">"px"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">response();</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, response);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：直接适配所有的终端</li>
+<li>缺点：必须在页面加载之前设置html的font-size值，不然会出现文字大小调动的情况。</li>
+</ul>
+<p>引用flexible.js</p>
+<p>原理是把设计图分成10等份，所以基准值为设计图的1/10即可；</p>
+<p>设计图大小不同，基准值也不相同；</p>
+<p>【<strong>使用时，直接根据设计图的大小来确定基准值，<code>基准值 = 设计图宽度 / 10</code></strong>】</p>
+<p><code>rem = 实际值 / 基准值</code></p>
+<h3 id="rem布局-flexible-js"><a href="#rem布局-flexible-js" class="headerlink" title="rem布局 flexible.js"></a>rem布局 flexible.js</h3><ul>
+<li>淘宝工程师开发的，<code>&lt;head&gt;&lt;/head&gt;</code> 内引用js即可；</li>
+<li>原理是把设计图分成10等份，所以基准值为设计图的1/10即可；<code>基准值 = 设计图宽度 / 10</code></li>
+<li>不用考虑2倍图，3倍图，直接（量取数值/基准值）rem即可；<code>rem = 实际值 / 基准值</code></li>
+<li>背景图，如果自适应，所有的单位都要用rem，精灵图的定位，精灵图的大小；</li>
+</ul>
+<h2 id="布局的注意内容"><a href="#布局的注意内容" class="headerlink" title="布局的注意内容"></a>布局的注意内容</h2><ul>
+<li>a img标签最好设置为块元素，img宽度：<code>width:100%</code>；</li>
+<li><code>&lt;input type=&quot;number&quot;&gt;</code> 可以自动生成上下增减数字的功能，框内只能输入数字；</li>
+<li>苹果系统（ios）不识别时间中的<code>-</code>，需要使用,来生成时间格式；</li>
+<li><code>&lt;input type=&quot;search&quot;&gt;</code> 搜索框默认盒模型为<code>box-sizing：content-box</code>；</li>
+</ul>
+<h2 id="Swiper插件"><a href="#Swiper插件" class="headerlink" title="Swiper插件"></a>Swiper插件</h2><p>Swiper插件：轮播图的专业插件</p>
+<p>支持PC和移动端的轮播图插件；</p>
+<p>可以独立使用，也支持jQuery和Zepto；</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动Web/" rel="tag"><i class="fa fa-tag"></i> 移动Web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-cn/2017/06/03/CSS3/" rel="next" title="CSS3">
+                <i class="fa fa-chevron-left"></i> CSS3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-cn/2017/09/10/AJAX/" rel="prev" title="Ajax">
+                Ajax <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Shiyi_" />
+            
+              <p class="site-author-name" itemprop="name">Shiyi_</p>
+              <p class="site-description motion-element" itemprop="description">凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yidianyuwen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Shiyidejavu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/DejavuShiyi" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动Web"><span class="nav-number">1.</span> <span class="nav-text">移动Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动web基础"><span class="nav-number">1.1.</span> <span class="nav-text">移动web基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端开发现状"><span class="nav-number">1.1.1.</span> <span class="nav-text">移动端开发现状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端开发分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">移动端开发分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕与分辨率"><span class="nav-number">1.2.</span> <span class="nav-text">屏幕与分辨率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕尺寸"><span class="nav-number">1.2.1.</span> <span class="nav-text">屏幕尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕分辨率"><span class="nav-number">1.2.2.</span> <span class="nav-text">屏幕分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#像素密度ppi"><span class="nav-number">1.2.3.</span> <span class="nav-text">像素密度ppi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备独立像素"><span class="nav-number">1.3.</span> <span class="nav-text">设备独立像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2倍图与3倍图"><span class="nav-number">1.4.</span> <span class="nav-text">2倍图与3倍图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口viewport"><span class="nav-number">1.5.</span> <span class="nav-text">视口viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流式布局"><span class="nav-number">1.6.</span> <span class="nav-text">流式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-块级格式上下文"><span class="nav-number">1.7.</span> <span class="nav-text">BFC 块级格式上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">1.8.</span> <span class="nav-text">清除浮动的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘与回流（重排）"><span class="nav-number">1.9.</span> <span class="nav-text">重绘与回流（重排）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重绘与回流相关概念"><span class="nav-number">1.9.1.</span> <span class="nav-text">重绘与回流相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聪明的浏览器"><span class="nav-number">1.9.2.</span> <span class="nav-text">聪明的浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化性能"><span class="nav-number">1.9.3.</span> <span class="nav-text">优化性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch事件"><span class="nav-number">1.9.4.</span> <span class="nav-text">touch事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IScroll插件的使用"><span class="nav-number">1.10.</span> <span class="nav-text">IScroll插件的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zepto类库"><span class="nav-number">1.11.</span> <span class="nav-text">Zepto类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式布局"><span class="nav-number">1.12.</span> <span class="nav-text">响应式布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式布局的概念"><span class="nav-number">1.12.1.</span> <span class="nav-text">响应式布局的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体查询"><span class="nav-number">1.12.2.</span> <span class="nav-text">媒体查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootstrap框架"><span class="nav-number">1.13.</span> <span class="nav-text">bootstrap框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-reset-和-normalize-css"><span class="nav-number">1.13.1.</span> <span class="nav-text">CSS reset 和 normalize.css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栅格系统：-col-XX-YY"><span class="nav-number">1.13.2.</span> <span class="nav-text">栅格系统：.col-XX-YY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以删除的属性"><span class="nav-number">1.13.3.</span> <span class="nav-text">可以删除的属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less"><span class="nav-number">1.14.</span> <span class="nav-text">Less</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Less简介"><span class="nav-number">1.14.1.</span> <span class="nav-text">Less简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js的安装"><span class="nav-number">1.14.2.</span> <span class="nav-text">node.js的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less的使用"><span class="nav-number">1.14.3.</span> <span class="nav-text">Less的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less的语法"><span class="nav-number">1.14.4.</span> <span class="nav-text">Less的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Less变量："><span class="nav-number">1.14.4.1.</span> <span class="nav-text">Less变量：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less注释"><span class="nav-number">1.14.4.2.</span> <span class="nav-text">Less注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mixin混入"><span class="nav-number">1.14.4.3.</span> <span class="nav-text">mixin混入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less函数"><span class="nav-number">1.14.4.4.</span> <span class="nav-text">Less函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less嵌套"><span class="nav-number">1.14.4.5.</span> <span class="nav-text">Less嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less导入"><span class="nav-number">1.14.4.6.</span> <span class="nav-text">Less导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less运算"><span class="nav-number">1.14.4.7.</span> <span class="nav-text">Less运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REM"><span class="nav-number">1.15.</span> <span class="nav-text">REM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rem和em的区别"><span class="nav-number">1.15.1.</span> <span class="nav-text">rem和em的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem的作用"><span class="nav-number">1.15.2.</span> <span class="nav-text">rem的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem如何设置"><span class="nav-number">1.15.3.</span> <span class="nav-text">rem如何设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem布局"><span class="nav-number">1.15.4.</span> <span class="nav-text">rem布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem布局-flexible-js"><span class="nav-number">1.15.5.</span> <span class="nav-text">rem布局 flexible.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局的注意内容"><span class="nav-number">1.16.</span> <span class="nav-text">布局的注意内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swiper插件"><span class="nav-number">1.17.</span> <span class="nav-text">Swiper插件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright"><span itemprop="copyrightYear"></span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiyi_</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

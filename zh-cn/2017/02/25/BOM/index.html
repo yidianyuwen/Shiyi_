@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 7px #1E92FB, 0 0 4px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: transparent;    /*上边框颜色*/
+        border-left-color: transparent;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BOM," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="BOMBOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。 window对象 window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象 像 document、alert()、console.log() 这些都是 window 的属性，其实 BOM 中基本所有的属性和方法都是属性 window 的。 所有定义在全局作用域中的变量">
+<meta name="keywords" content="BOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebApi_BOM">
+<meta property="og:url" content="http://yoursite.com/zh-cn/2017/02/25/BOM/index.html">
+<meta property="og:site_name" content="嗯，一点余温">
+<meta property="og:description" content="BOMBOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。 window对象 window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象 像 document、alert()、console.log() 这些都是 window 的属性，其实 BOM 中基本所有的属性和方法都是属性 window 的。 所有定义在全局作用域中的变量">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-11T05:36:18.010Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebApi_BOM">
+<meta name="twitter:description" content="BOMBOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。 window对象 window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象 像 document、alert()、console.log() 这些都是 window 的属性，其实 BOM 中基本所有的属性和方法都是属性 window 的。 所有定义在全局作用域中的变量">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/zh-cn/2017/02/25/BOM/"/>
+
+
+
+
+
+  <title>WebApi_BOM | 嗯，一点余温</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?01076d8c1ebce03ed408a2a36a23aa85";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嗯，一点余温</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Shiyi_</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zh-cn/2017/02/25/BOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiyi_">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗯，一点余温">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WebApi_BOM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T16:25:07+08:00">
+                2017-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WebApi/" itemprop="url" rel="index">
+                    <span itemprop="name">WebApi</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。</p>
+<h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><ol>
+<li>window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象</li>
+<li>像 <code>document、alert()</code>、<code>console.log()</code> 这些都是 window 的属性，其实 BOM 中基本所有的属性和方法都是属性 window 的。</li>
+<li>所有定义在全局作用域中的变量、函数都会变成 window 对象的属性和方法</li>
+<li>window 对象下的属性和方法调用的时候可以省略 window</li>
+</ol>
+<p>关于this</p>
+<ul>
+<li>函数内部的this是window</li>
+<li>方法内部的this，指向当前的对象</li>
+<li>构造函数内部的this，新创建的对象</li>
+<li>事件里面的this，当前对象</li>
+</ul>
+<h3 id="name和top"><a href="#name和top" class="headerlink" title="name和top"></a>name和top</h3><p>name和top是window的两个特殊字</p>
+<p>name永远是字符串</p>
+<h3 id="window-open与window-close-了解"><a href="#window-open与window-close-了解" class="headerlink" title="window.open与window.close(了解)"></a>window.open与window.close(了解)</h3><p><code>window.open()</code> 打开一个窗口</p>
+<p>语法：window.open(url, [name], [features]);</p>
+<ul>
+<li>参数1：需要载入的url地址</li>
+<li>参数2：新窗口的名称<ul>
+<li>_blank:如果指定为_blank,表示在新的窗口打开</li>
+</ul>
+</li>
+<li>参数3：窗口的属性，指定窗口的大小</li>
+<li>返回值：会返回刚刚创建的那个窗口，用于关闭</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newWin = <span class="built_in">window</span>.open(<span class="string">"http://www.baidu.com"</span>,<span class="string">"_blank"</span>, <span class="string">"width=300,height=300"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数配置：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/open</span></span><br></pre></td></tr></table></figure>
+<p><code>window.close()</code> 关闭窗口</p>
+<p><code>newWin.close()</code>；newWin是刚刚创建的那个窗口</p>
+<p><code>window.close()</code>; 把当前窗口关闭</p>
+<h3 id="延时器与定时器（事件）"><a href="#延时器与定时器（事件）" class="headerlink" title="延时器与定时器（事件）"></a>延时器与定时器（事件）</h3><h4 id="setTimeout：延时器"><a href="#setTimeout：延时器" class="headerlink" title="setTimeout：延时器"></a>setTimeout：延时器</h4><p>setTimeout延时器可以在延迟时间到期后执行一个指定的函数。只执行一次</p>
+<ul>
+<li>语法：<code>var timer = setTimeOut(function(){ //1秒后将执行的代码。}, 1000);</code></li>
+<li>第一个参数是一个回调函数，第二参数是毫秒数</li>
+<li>返回一个延时器的id，用于清除定时器</li>
+<li>清除延时器：<code>clearTimeOut(timer);</code> 清除上面定义的定时器</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = setTimeOut(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//1秒后将执行的代码。</span></span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">clearTimeOut(timer);<span class="comment">//清除上面定义的定时器</span></span><br></pre></td></tr></table></figure>
+<h4 id="setInterval：定时器"><a href="#setInterval：定时器" class="headerlink" title="setInterval：定时器"></a>setInterval：定时器</h4><p>setInterval,方法重复调用一个函数或执行一个代码段，在每次调用之间具有固定的时间延迟。定时器除非清除，否则会一直执行下去。</p>
+<ul>
+<li>语法：<code>var timer = setInterval(function(){ //重复执行的代码。}, 1000);</code></li>
+<li>第一个参数是一个回调函数，第二参数是毫秒数</li>
+<li>返回一个延时器的id，用于清除定时器</li>
+<li>清除定时器：<code>clearInterval(timer);//清除上面定义的定时器</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//重复执行的代码。</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">clearInterval(timer);<span class="comment">//清除上面定义的定时器</span></span><br></pre></td></tr></table></figure>
+<h3 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h3><p>location 对象也是 window 的一个属性，location 其实对应的就是浏览器中的地址栏。</p>
+<p><code>location.href</code> 控制地址栏中的地址；<code>location.href = &quot;http://www.baidu.com&quot;;</code> 让页面跳转到百度首页</p>
+<p><code>location.reload()</code> 让页面重新加载</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location.reload(<span class="literal">true</span>);<span class="comment">//强制刷新，相当于ctrl+F5</span></span><br><span class="line">location.reload(<span class="literal">false</span>);<span class="comment">//刷新，相当于F5</span></span><br><span class="line">history.go(<span class="number">1</span>) <span class="comment">// 下一页，前提有缓存</span></span><br><span class="line">history.go(<span class="number">0</span>) <span class="comment">// 当前页，刷新</span></span><br><span class="line">history.go(<span class="number">-1</span>) <span class="comment">// 返回上一页</span></span><br></pre></td></tr></table></figure>
+<p>location 的其他属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.hash);<span class="comment">//哈希值 其实就是锚点   SPA（single page application）</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.host);<span class="comment">//服务器 服务器名+端口号</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.hostname);<span class="comment">//服务器名</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.pathname);<span class="comment">//路径名</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.port);<span class="comment">//端口</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.protocol);<span class="comment">//协议</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.search);<span class="comment">//参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="window的其他对象"><a href="#window的其他对象" class="headerlink" title="window的其他对象"></a>window的其他对象</h3><p><code>window.navigator</code> 的一些属性可以获取客户端的一些信息；<code>navigator.userAgent</code> 浏览器版本</p>
+<p>history 对象表示页面的历史</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后退：</span></span><br><span class="line">history.back();</span><br><span class="line">history.go(<span class="number">-1</span>);</span><br><span class="line"><span class="comment">//前进：</span></span><br><span class="line">history.forward();</span><br><span class="line">history.go(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>screen 对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(screen.width);<span class="comment">//屏幕的宽度</span></span><br><span class="line"><span class="built_in">console</span>.log(screen.height);<span class="comment">//屏幕的高度</span></span><br><span class="line"><span class="built_in">console</span>.log(screen.availWidth);<span class="comment">//浏览器可占用的宽度</span></span><br><span class="line"><span class="built_in">console</span>.log(screen.availHeight);<span class="comment">//浏览器可占用的高度</span></span><br></pre></td></tr></table></figure>
+<h2 id="三大家族"><a href="#三大家族" class="headerlink" title="三大家族"></a>三大家族</h2><h3 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h3><h4 id="获取元素的宽高"><a href="#获取元素的宽高" class="headerlink" title="获取元素的宽高"></a>获取元素的宽高</h4><p><code>element.style.height</code>:对应的是行内样式，对于写在类中的样式是获取不到的；</p>
+<ol>
+<li>设置宽度高度使用style.width与style.height</li>
+<li>获取宽度和高度offsetWidth与offsetHeight</li>
+</ol>
+<p><code>element.offsetHeight</code>：element 的真实高度 <code>padding+border+Height</code>；获取到的是元素的真实高度，包括padding和border；是一个在只读属性，不能对元素设置属性；</p>
+<p><code>element.offsetWidth</code>：element 的真实宽度 <code>padding+border+Width</code>；获取到的是元素的真实宽度，包括padding和border；是一个在只读属性，不能对元素设置属性；</p>
+<h4 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h4><p><code>element.offsetParent</code> 获取的是向上最近的有定位的父级元素</p>
+<p>parentNode 和 offsetParent</p>
+<ol>
+<li>parentNode始终是父元素</li>
+<li>offsetParent是离当前元素最近的定位元素(absolute、relative)，如果没有，那就找body</li>
+</ol>
+<h4 id="offsetLeft与offsetTop"><a href="#offsetLeft与offsetTop" class="headerlink" title="offsetLeft与offsetTop"></a>offsetLeft与offsetTop</h4><p>offsetLeft 自身左侧到offsetParent左侧的距离 <code>left + margin-left</code><br>offsetTop 自身顶部到offsetParent顶部的距离 <code>top + margin-top</code></p>
+<ol>
+<li>元素自身与offsetParent真实的距离</li>
+<li>获取到的是数值类型，方便计算</li>
+<li>只读属性，只能获取，不能设置</li>
+</ol>
+<p><code>element.offsetLeft</code>：element 距离向上最近的有定位的父级元素的真实距离 <code>left+margin-left</code></p>
+<p><code>element.offsetTop</code>：element 距离向上最近的有定位的父级元素的真实距离 <code>top+margin-top</code></p>
+<p>【<strong>结论：获取操作：用offset系列；设置操作：用style.xxx进行设置。</strong>】</p>
+<h3 id="scroll系列"><a href="#scroll系列" class="headerlink" title="scroll系列"></a>scroll系列</h3><p>scroll家族用来获取盒子内容的大小和位置</p>
+<p>scroll家族有：<code>scrollWidth</code>、<code>scrollHeight</code>、<code>scrollLeft</code>、<code>scrollTop</code></p>
+<p>通常来说，scroll家族用的最多的地方就是用来获取页面被卷去的宽度和高度，非常的常用；</p>
+<p><code>scrollWidth</code> 和 <code>scrollHeight</code> 获取的是盒子中内容的真实大小，与盒子无关；只有当盒子中的内容小于盒子本身+padding时，才显示盒子本身+padding的大小。</p>
+<p><code>scrollTop</code> 和 <code>scrollLeft</code> 当有滚动条时，获取的是被滚动掉的像素值，没有滚动条时获取的值为0；</p>
+<p><code>window.pageXOffset</code> 和 <code>window.pageYOffset</code> 是现代浏览器的新用法</p>
+<h3 id="client系列"><a href="#client系列" class="headerlink" title="client系列"></a>client系列</h3><p>client家族用于获取盒子可视区的大小</p>
+<p>client家族有<code>clientWidth</code>、<code>clientHeight</code>、<code>clientLeft</code>、<code>clientTop</code></p>
+<p><code>clientWidth</code> 和 <code>clientHeight</code> 获取的是可视区的大小，对于盒子来说是盒子本身+padding的大小，对于浏览器是当前页面可视区的大小</p>
+<p><code>window.innerWidth</code> 和 <code>window.innerHeight</code> 是现代浏览器的用法</p>
+<p><code>clientTop</code> 和 <code>clientLeft</code> 就是上边框和左边框的大小，如果有滚动条会加上滚动条的大小，基本上没用</p>
+<h2 id="动画函数封装"><a href="#动画函数封装" class="headerlink" title="动画函数封装"></a>动画函数封装</h2><ul>
+<li>清除定时器使用element作为父级对象存储定时器返回值<ul>
+<li>封装在函数内部</li>
+<li><code>element.timeId</code></li>
+<li>只对当前element起作用，不会被其他元素影响或者被影响</li>
+</ul>
+</li>
+<li>清除定时器时，不管有没有到目标位置，都让element的style设置为目标值</li>
+<li>向前移动还是向后移动，用绝对值来判断</li>
+<li>使用三元运算符来设置是正的移动值还是负的移动值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 封装动画函数-左右方向</span></span><br><span class="line"><span class="comment">   * @param element 为那个元素设置动画</span></span><br><span class="line"><span class="comment">   * @param target 动画移动的目标值</span></span><br><span class="line"><span class="comment">   * @param distance 动画每次定时器调用移动多远</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animation</span>(<span class="params">element, target, distance</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//清除定时器</span></span><br><span class="line">    <span class="comment">//element.timeId; 保证了此定时器的唯一性，并且不会影响或者被影响</span></span><br><span class="line">    clearInterval(element.timeId);</span><br><span class="line">    <span class="comment">////获取元素的left位置</span></span><br><span class="line">    <span class="keyword">var</span> location = element.offsetLeft;</span><br><span class="line">    <span class="comment">//判断是要前进还是倒退</span></span><br><span class="line">    <span class="keyword">var</span> step = location &lt; target ? distance : -distance;</span><br><span class="line">    <span class="comment">//设置定时器</span></span><br><span class="line">    element.timeId = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断定时器是不是还需要继续</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(target - location) &gt; <span class="built_in">Math</span>.abs(step)) &#123;</span><br><span class="line">        location += step;</span><br><span class="line">        element.style.left = location + <span class="string">"px"</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//不能继续的时候清除定时器</span></span><br><span class="line">        clearInterval(element.timeId);</span><br><span class="line">        <span class="comment">//清除定时器以后，不管你有没有到达目标位置，都让你到达目标位置</span></span><br><span class="line">        element.style.left = target+<span class="string">"px"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><p>存放图片的ul宽度要设置足够大，<code>lis.length*图片宽度</code></p>
+<p>在图片末尾多加一张图，第一幅图片，用来实现无缝轮播</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//是最后一张图片了</span></span><br><span class="line"><span class="keyword">if</span> (count &gt;= imgs.length - <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="comment">//瞬间把图片变回第0张</span></span><br><span class="line">  count = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//并且把ul的位置设置到0</span></span><br><span class="line">  ul.style.left = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一张图片</span></span><br><span class="line"><span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="comment">//瞬间变到最后一张</span></span><br><span class="line">  count = imgs.length - <span class="number">1</span>;</span><br><span class="line">  <span class="comment">//ul的位置应该换到最后</span></span><br><span class="line">  ul.style.left = -count * box.offsetWidth + <span class="string">"px"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同步小圆点，图片比圆点多一</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3. 同步小圆点</span></span><br><span class="line"><span class="comment">//3.1 干掉所有的小圆点</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">  points[i].className = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.2 复活count, 如果是最后一张，显示第0个小圆点</span></span><br><span class="line"><span class="keyword">if</span> (count &gt;= imgs.length - <span class="number">1</span>) &#123;</span><br><span class="line">  points[<span class="number">0</span>].className = <span class="string">"now"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  points[count].className = <span class="string">"now"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 左右点击都是一样</span></span><br></pre></td></tr></table></figure>
+<p>自动播放通过自点击事件 <code>element.click();</code> 和定时器自己点击来轮播</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//思路：开启一个定时器， 每隔2s点击一下右箭头</span></span><br><span class="line"><span class="keyword">var</span> timeId = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//表示触发右箭头的点击事件</span></span><br><span class="line">  rightArr.click();</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//给box注册onmouseover事件，清除定时器</span></span><br><span class="line">box.onmouseover = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  clearInterval(timeId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//给box注册onmouseout事件，开启定时器</span></span><br><span class="line">box.onmouseout = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  timeId = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//表示触发右箭头的点击事件</span></span><br><span class="line">    rightArr.click();</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h3><ul>
+<li>事件：触发-响应机制，javascript是基于事件驱动的。</li>
+<li>事件源：哪个对象受到了触发</li>
+<li>事件名称：触发的条件；需要什么动作</li>
+<li>事件处理程序：会发生什么；事件触发后要执行的代码(函数形式)</li>
+</ul>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>在触发某个事件时，都会产生一个事件对象Event，这个对象中包含所有事件的相关信息，包括触发事件的元素，事件的类型和其他一系列事件相关的信息。</p>
+<p>获取事件的对象，在注册事件时，对函数设置一个形参就能获取；</p>
+<p>对于IE678来说，获取事件对象则是另一种方式，在事件里面，通过 <code>window.event</code> 来获取事件对象；</p>
+<p>【<strong><code>event.target</code> 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</strong>】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//兼容性封装</span></span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//只要用到了事件对象，就要记得处理浏览器兼容性</span></span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>事件常用的属性</p>
+<ul>
+<li>clientX，clientY：相对于可视区left和top的距离</li>
+<li>pageX，pageY：相对于内容的left和top的距离，包括不能显示的部分（和scroll系列类似）</li>
+<li>screenX，screenY：相对于整个屏幕（显示器）的left和top的距离</li>
+</ul>
+<h3 id="常用事件"><a href="#常用事件" class="headerlink" title="常用事件"></a>常用事件</h3><ul>
+<li>onclick:鼠标点击事件</li>
+<li>鼠标经过事件与鼠标离开事件<ul>
+<li>onmouseover:当鼠标经过时触发</li>
+<li>onmouseout:当鼠标离开时触发</li>
+</ul>
+</li>
+<li>获得焦点与失去焦点<ul>
+<li>onfocus:获得焦点时触发</li>
+<li>onblur:失去焦点时触发</li>
+</ul>
+</li>
+<li>键盘的按下和弹起事件<ul>
+<li>keydown:当键盘按下时触发的事件</li>
+<li>keyup:键盘弹起时触发的事件</li>
+<li>注意：如果给文本框注册的是keydown事件，获取的value值是上一次的。（按下8次，会记录第一次空白和后面7次）</li>
+<li><code>event.keyCode</code>属性：在键盘事件中，这个会记录键盘按下的键盘码，具有唯一性</li>
+</ul>
+</li>
+<li>双击事件<ul>
+<li>ondblclick:双击的时候触发</li>
+</ul>
+</li>
+<li>自点击事件 <code>element.click();</code> 一般和定时器一同使用，</li>
+<li>onscroll事件滚动条滚动事件；当有滚动条时，滚动条被移动时才触发</li>
+<li>onresize事件窗口大小调整事件；在当前可视区大小发生变化时才出发，一般用于响应式布局</li>
+<li>onmousedown鼠标按下事件；鼠标按下的时候触发，一般用于单击按住不放拖拽</li>
+<li>onmouseup鼠标弹起事件；鼠标弹起的时候触发，onclick事件时发生在鼠标弹起后</li>
+<li>onmousemove鼠标移动事件；给谁注册就只能在谁的身上生效移动</li>
+</ul>
+<h3 id="注册事件的方式"><a href="#注册事件的方式" class="headerlink" title="注册事件的方式"></a>注册事件的方式</h3><p>on+事件名称</p>
+<ul>
+<li>on+事件默认是冒泡</li>
+<li>如果同一元素有多个相同的事件会被后面的覆盖掉</li>
+</ul>
+<p>addEventListener与removeEventListener现代浏览器支持的注册事件的新方式，这种方式注册的事件不会出现覆盖问题。</p>
+<p><code>addEventListener(type, func, useCapture);</code> 注册事件</p>
+<p>三个参数：</p>
+<ul>
+<li>type：字符串事件名称，不用加on；</li>
+<li>func：事件处理函数，如果需要移除这个函数，不能使用匿名函数，此处不能直接声明函数，在这里声明的函数，移除时使用函数名无效；</li>
+<li>useCapture：布尔类型，默认值是false，表示冒泡；true，表示捕获；</li>
+</ul>
+<p><code>removeEventListener(type, func, useCapture);</code> 移除事件</p>
+<p>三个参数：</p>
+<ul>
+<li>type：需要移除的字符串事件名称，不用加on；</li>
+<li>func：需要移除的函数名</li>
+<li>useCapture：布尔类型，默认值是false；</li>
+</ul>
+<p>attachEvent与detachEvent（了解）只有IE678才支持</p>
+<p>IE678不支持addEventListener与removeEventListen两个方法，但是支持attachEvent与detachEvnet</p>
+<p>attachEvent的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//type:事件类型   需要加上on   onclick  onmouseenter</span></span><br><span class="line"><span class="comment">//func:需要执行的那个事件</span></span><br><span class="line">attachEvent(type, func)</span><br></pre></td></tr></table></figure>
+<p>detachEvent的用法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//type:事件类型   需要加上on   onclick  onmouseenter</span></span><br><span class="line"><span class="comment">//func:需要执行的那个事件</span></span><br><span class="line">detachEvent(type, func)</span><br></pre></td></tr></table></figure>
+<h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><h4 id="事件大三个阶段"><a href="#事件大三个阶段" class="headerlink" title="事件大三个阶段"></a>事件大三个阶段</h4><p>任何事件 发生，都会有三个阶段，首先发生的是捕获阶段，然后是目标阶段，最后是冒泡阶段；从最大祖先级向目标捕获到达目标在向最大祖先级冒泡，只要有同一事件就会被触发，</p>
+<p>当使用 <code>addEventLinstener(type, func, useCapture);</code> 时，useCapture的值为true时，表示在捕获阶段发生，值为false时表示在冒泡阶段发生，所有的事件只会触发一次，根据这个值来判断，用on+注册事件默认都是冒泡。</p>
+<p>当使用 <code>event.stopPropagation();</code> 阻止时，会立即停止在当前的事件。即使是没有到目标位置也会停止。</p>
+<ol>
+<li>捕获阶段–首先发生</li>
+<li>目标阶段–然后发生</li>
+<li>冒泡阶段–最后发生</li>
+</ol>
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><p>当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为事件冒泡。</p>
+<p>说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。</p>
+<p>通常情况，事件冒泡对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。</p>
+<h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><p>事件捕获是火狐浏览器提出来的，IE678不支持事件捕获（基本上，我们都是用事件冒泡）</p>
+<p>事件的处理将从DOM层次的根开始，而不是从触发事件的目标元素开始，事件被从目标元素的所有祖先元素依次往下传递</p>
+<h4 id="阻止事件传播"><a href="#阻止事件传播" class="headerlink" title="阻止事件传播"></a>阻止事件传播</h4><p><code>event.stopPropagation();</code> 表示阻止传播事件，所有的事件处理函数中，出现此语句时，会立即停止在当前事件，即使是没有到达目标阶段。</p>
+<h3 id="window-onload"><a href="#window-onload" class="headerlink" title="window.onload"></a>window.onload</h3><p>window.onload事件会在窗体加载完成后执行，通常我们称之为入口函数。</p>
+<p>作用：会等待页面所有的资源都加载完成，才会执行。</p>
+<p>一般用在获取图片的宽高属性时，会用到，</p>
+<h3 id="给window注册的几个事件"><a href="#给window注册的几个事件" class="headerlink" title="给window注册的几个事件"></a>给window注册的几个事件</h3><p><code>window.onload</code> 所有加载完之后才触发<br><code>window.onscroll</code> 滚动条滚动触发<br><code>window.onresize</code> 可视区大小改变时触发</p>
+<h3 id="获取计算后的样式"><a href="#获取计算后的样式" class="headerlink" title="获取计算后的样式"></a>获取计算后的样式</h3><p><code>window.getComputedStyle(element)</code></p>
+<p>通过element.style.xxx只能获取到行内样式</p>
+<p>通过offset系列只能获取到特殊的一些样式</p>
+<p>获取元素计算后的样式指的是元素经过层叠后真正生效的样式，不管样式写在哪，计算后的样式指的就是最终的样式。<br>现代浏览器：<code>return window.getComputedStyle(element, null)[attr];</code></p>
+<p>IE678：<code>return element.currentStyle[attr];</code></p>
+<p><code>window.getComputedStyle(element)</code> 获取到的是最终生效的元素样式，用于获取元素计算后的样式(元素生效的样式)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BOM/" rel="tag"><i class="fa fa-tag"></i> BOM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-cn/2017/02/21/DOM/" rel="next" title="WebApi_DOM">
+                <i class="fa fa-chevron-left"></i> WebApi_DOM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-cn/2017/03/19/JavaScript高级/" rel="prev" title="JavaScript 高级">
+                JavaScript 高级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Shiyi_" />
+            
+              <p class="site-author-name" itemprop="name">Shiyi_</p>
+              <p class="site-description motion-element" itemprop="description">凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yidianyuwen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Shiyidejavu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/DejavuShiyi" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window对象"><span class="nav-number">1.1.</span> <span class="nav-text">window对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name和top"><span class="nav-number">1.2.</span> <span class="nav-text">name和top</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-open与window-close-了解"><span class="nav-number">1.3.</span> <span class="nav-text">window.open与window.close(了解)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延时器与定时器（事件）"><span class="nav-number">1.4.</span> <span class="nav-text">延时器与定时器（事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout：延时器"><span class="nav-number">1.4.1.</span> <span class="nav-text">setTimeout：延时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setInterval：定时器"><span class="nav-number">1.4.2.</span> <span class="nav-text">setInterval：定时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-对象"><span class="nav-number">1.5.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window的其他对象"><span class="nav-number">1.6.</span> <span class="nav-text">window的其他对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三大家族"><span class="nav-number">2.</span> <span class="nav-text">三大家族</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offset系列"><span class="nav-number">2.1.</span> <span class="nav-text">offset系列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取元素的宽高"><span class="nav-number">2.1.1.</span> <span class="nav-text">获取元素的宽高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offsetParent"><span class="nav-number">2.1.2.</span> <span class="nav-text">offsetParent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offsetLeft与offsetTop"><span class="nav-number">2.1.3.</span> <span class="nav-text">offsetLeft与offsetTop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scroll系列"><span class="nav-number">2.2.</span> <span class="nav-text">scroll系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client系列"><span class="nav-number">2.3.</span> <span class="nav-text">client系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画函数封装"><span class="nav-number">3.</span> <span class="nav-text">动画函数封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图"><span class="nav-number">4.</span> <span class="nav-text">轮播图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">5.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册事件"><span class="nav-number">5.1.</span> <span class="nav-text">注册事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-number">5.2.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用事件"><span class="nav-number">5.3.</span> <span class="nav-text">常用事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册事件的方式"><span class="nav-number">5.4.</span> <span class="nav-text">注册事件的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件流"><span class="nav-number">5.5.</span> <span class="nav-text">事件流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件大三个阶段"><span class="nav-number">5.5.1.</span> <span class="nav-text">事件大三个阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件冒泡"><span class="nav-number">5.5.2.</span> <span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件捕获"><span class="nav-number">5.5.3.</span> <span class="nav-text">事件捕获</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止事件传播"><span class="nav-number">5.5.4.</span> <span class="nav-text">阻止事件传播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-onload"><span class="nav-number">5.6.</span> <span class="nav-text">window.onload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给window注册的几个事件"><span class="nav-number">5.7.</span> <span class="nav-text">给window注册的几个事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取计算后的样式"><span class="nav-number">5.8.</span> <span class="nav-text">获取计算后的样式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright"><span itemprop="copyrightYear"></span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiyi_</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

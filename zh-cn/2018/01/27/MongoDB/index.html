@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 7px #1E92FB, 0 0 4px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: transparent;    /*上边框颜色*/
+        border-left-color: transparent;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MongoDB," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MongoDB数据库类型 关系型数据库 非关系型数据库  MongoDB简介 mongodb 官网 mongodb 中文 mongodb教程 MongoDB 是一个非关系型数据库，属于文档型数据库（NoSQL）； 对 JavaScript 兼容较好，和 Node.js 结合最好  NoSQL简介NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。 在现代的计算系统上每">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB">
+<meta property="og:url" content="http://yoursite.com/zh-cn/2018/01/27/MongoDB/index.html">
+<meta property="og:site_name" content="嗯，一点余温">
+<meta property="og:description" content="MongoDB数据库类型 关系型数据库 非关系型数据库  MongoDB简介 mongodb 官网 mongodb 中文 mongodb教程 MongoDB 是一个非关系型数据库，属于文档型数据库（NoSQL）； 对 JavaScript 兼容较好，和 Node.js 结合最好  NoSQL简介NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。 在现代的计算系统上每">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-11T06:02:52.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB">
+<meta name="twitter:description" content="MongoDB数据库类型 关系型数据库 非关系型数据库  MongoDB简介 mongodb 官网 mongodb 中文 mongodb教程 MongoDB 是一个非关系型数据库，属于文档型数据库（NoSQL）； 对 JavaScript 兼容较好，和 Node.js 结合最好  NoSQL简介NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。 在现代的计算系统上每">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/zh-cn/2018/01/27/MongoDB/"/>
+
+
+
+
+
+  <title>MongoDB | 嗯，一点余温</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?01076d8c1ebce03ed408a2a36a23aa85";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嗯，一点余温</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Shiyi_</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zh-cn/2018/01/27/MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiyi_">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗯，一点余温">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MongoDB</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T18:05:27+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MongoDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongoDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><h3 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h3><ul>
+<li>关系型数据库</li>
+<li>非关系型数据库</li>
+</ul>
+<h3 id="MongoDB简介"><a href="#MongoDB简介" class="headerlink" title="MongoDB简介"></a>MongoDB简介</h3><ul>
+<li><a href="https://www.mongodb.com/" target="_blank" rel="noopener">mongodb 官网</a></li>
+<li><a href="https://www.mongodb.com/cn" target="_blank" rel="noopener">mongodb 中文</a></li>
+<li><a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="noopener">mongodb教程</a></li>
+<li>MongoDB 是一个非关系型数据库，属于文档型数据库（NoSQL）；</li>
+<li>对 JavaScript 兼容较好，和 Node.js 结合最好</li>
+</ul>
+<h3 id="NoSQL简介"><a href="#NoSQL简介" class="headerlink" title="NoSQL简介"></a>NoSQL简介</h3><p>NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。</p>
+<p>在现代的计算系统上每天网络上都会产生庞大的数据量。</p>
+<p>这些数据有很大一部分是由关系数据库管理系统（RDBMS）来处理。 1970年 E.F.Codd’s提出的关系模型的论文 “A relational model of data for large shared data banks”，这使得数据建模和应用程序编程更加简单。</p>
+<p>通过应用实践证明，关系模型是非常适合于客户服务器编程，远远超出预期的利益，今天它是结构化数据存储在网络和商务应用的主导技术。</p>
+<p>NoSQL 是一项全新的数据库革命性运动，早期就有人提出，发展至2009年趋势越发高涨。NoSQL的拥护者们提倡运用非关系型的数据存储，相对于铺天盖地的关系型数据库运用，这一概念无疑是一种全新的思维的注入。</p>
+<h3 id="MongoDB的安装"><a href="#MongoDB的安装" class="headerlink" title="MongoDB的安装"></a>MongoDB的安装</h3><h4 id="windows版本"><a href="#windows版本" class="headerlink" title="windows版本"></a>windows版本</h4><p>参考地址：<a href="http://www.runoob.com/mongodb/mongodb-window-install.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/mongodb-window-install.html</a></p>
+<ul>
+<li>1 根据操作系统选择合适的安装程序（32位或64位）</li>
+<li>2 直接安装程序</li>
+<li>3 配置环境变量，通过命令：<code>mongod --version</code>看是否安装成功</li>
+<li>4 注意：<strong>MongoDB最新版的安装包已经不再支持32位的windows操作系统了</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">解决mongodb安装时出错 “mongodb 无法启动此程序，因为计算机中丢失 api-ms-win-crt-runtime-l1-1-0.dll”，安装 vc_redist.x64.exe</span><br><span class="line"></span><br><span class="line">https://helpx.adobe.com/tw/creative-cloud/kb/error_on_launch.html</span><br><span class="line"></span><br><span class="line">通过指定其他电脑的ip地址，就可以使用其他电脑中的MongoDB数据库了：</span><br><span class="line">var url = 'mongodb://localhost:27017'</span><br></pre></td></tr></table></figure>
+<h4 id="mac版本"><a href="#mac版本" class="headerlink" title="mac版本"></a>mac版本</h4><p>参考地址：<a href="http://www.runoob.com/mongodb/mongodb-osx-install.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/mongodb-osx-install.html</a></p>
+<h3 id="MongoDB的启动与连接"><a href="#MongoDB的启动与连接" class="headerlink" title="MongoDB的启动与连接"></a>MongoDB的启动与连接</h3><ul>
+<li>1 通过命令：<code>mongod</code> 启动 mongodb数据库服务（不要关闭）</li>
+<li>2 重新开启一个cmd，输入命令：<code>mongo</code> 就可以连接到mongod服务了</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 在 C中创建 data文件夹, 在data文件夹中创建 db文件</span><br><span class="line">2 在终端中输入命令: mongod ,就可以启动mongodb数据库服务了</span><br><span class="line">3. 创建 c:\data\db 的目的: 告诉 mongodb 数据存储到这个文件夹中, 但是, 只能在C盘中启动 mongod</span><br><span class="line">4. 如果需要在 D盘 启动, 需要在 D中也创建 data/db 目录</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端1 -- 启动服务</span></span><br><span class="line">mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 终端2 -- 连接到服务</span></span><br><span class="line"><span class="comment"># 此时，就可以在 终端 对数据库进行操作了</span></span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+<h3 id="数据库存储路径的说明"><a href="#数据库存储路径的说明" class="headerlink" title="数据库存储路径的说明"></a>数据库存储路径的说明</h3><ul>
+<li><a href="https://www.cnblogs.com/myzy/p/7826540.html" target="_blank" rel="noopener">windows32位系统 安装MongoDB</a></li>
+<li>注意：mongod 会在执行命令的磁盘根目录中查找 <code>data/db</code> 目录作为数据库文件存储路径</li>
+<li>可以通过命令：<code>mongod --dbpath 路径</code> 修改默认配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64位：</span></span><br><span class="line">mongod --dbpath C:\data\db</span><br><span class="line"></span><br><span class="line"><span class="comment"># 32位：</span></span><br><span class="line">mongod --dbpath 数据存储路径 --journal --storageEngine=mmapv1</span><br><span class="line">mongod --dbpath c:\data\db --journal --storageEngine=mmapv1</span><br></pre></td></tr></table></figure>
+<h3 id="MongoDB终端操作"><a href="#MongoDB终端操作" class="headerlink" title="MongoDB终端操作"></a>MongoDB终端操作</h3><h4 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h4><p>以下的命令都是在mongo终端下完成</p>
+<ul>
+<li>查看数据库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意：自己创建的数据库，如果数据为空，不会显示</span></span><br><span class="line">show dbs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换(创建)数据库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果数据库存在，切换到该数据库， 如果数据库不存在，创建新的数据库</span></span><br><span class="line">use 数据库名</span><br><span class="line">use <span class="built_in">test</span></span><br><span class="line">use users</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看当前使用的数据库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看当前数据库的集合</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除当前数据库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+<h4 id="mongodb术语"><a href="#mongodb术语" class="headerlink" title="mongodb术语"></a>mongodb术语</h4><ul>
+<li>数据库：一个项目会使用一个数据库，比如letao, manager等</li>
+<li>集合：类似于表，一个数据库可以有很多集合，比如user存放学生信息，teacher存放老师的信息</li>
+<li>文档：一条数据就是一个文档，一个集合可以存放多条数据，即一个集合可以存放多个老师的信息，每个老师的信息称为一条文档</li>
+<li>字段：一条数据中的属性，就是字段，比如name，age等</li>
+</ul>
+<h4 id="插入数据（文档）"><a href="#插入数据（文档）" class="headerlink" title="插入数据（文档）"></a>插入数据（文档）</h4><ul>
+<li>语法：<code>db.集合名称.insert({})</code></li>
+<li>说明: 在 mongodb 中不需要提前创建”表”, 直接通过 db.表名称.inseret() 就可以往表中添加数据了</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入一条</span></span><br><span class="line">db.users.insert(&#123;name: <span class="string">'jack'</span>, age: 18, gender: <span class="string">'male'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入多条</span></span><br><span class="line">db.users.insertMany([&#123;name: <span class="string">'tom'</span>, age: 19&#125;, &#123;name: <span class="string">'jerry'</span>, age: 20&#125;])</span><br></pre></td></tr></table></figure>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><ul>
+<li>语法：<code>db.集合名称.find()</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询所有数据</span></span><br><span class="line">db.users.find()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 美化输出格式：</span></span><br><span class="line">db.集合名称.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定条件查询：</span></span><br><span class="line">db.集合名称.find(&#123;name: <span class="string">'jack'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><ul>
+<li>语法：<code>db.集合名称.updateOne(条件, 更新后的数据)</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改name属性为jack的数据，将age改为20</span></span><br><span class="line"><span class="comment"># 第一个参数: 表示要修改哪个数据, 会根据指定的name属性, 去查找值为jack的数据</span></span><br><span class="line"><span class="comment"># 第二个参数: 表示修改修改后的数据, 会修改 age 属性的值为 20</span></span><br><span class="line">db.users.updateOne(&#123;name: <span class="string">'jack'</span>&#125;, &#123;<span class="variable">$set</span>: &#123;age: 20&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改age大于19岁的文档，将name设置为 中年人</span></span><br><span class="line">db.users.updateMany(&#123;age: &#123;<span class="variable">$gt</span>: 19&#125;&#125;,&#123;<span class="variable">$set</span>: &#123;name: <span class="string">'中年人'</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><ul>
+<li>语法：<code>db.集合名称.deleteOne(条件)</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除age为18的数据</span></span><br><span class="line"><span class="comment"># 删除第一条满足条件的数据</span></span><br><span class="line">db.users.deleteOne(&#123;age: 18&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有name为jack的数据</span></span><br><span class="line"><span class="comment"># 删除所有满足条件的数据</span></span><br><span class="line">db.users.deleteMany(&#123;name: <span class="string">'jack'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="MondoDB-查询语句"><a href="#MondoDB-查询语句" class="headerlink" title="MondoDB 查询语句"></a>MondoDB 查询语句</h4><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:right">示例</th>
+<th style="text-align:right">SQL语句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等于</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:right">db.col.find({ name :’jack’})</td>
+<td style="text-align:right">where name = ‘jack’</td>
+</tr>
+<tr>
+<td>小于</td>
+<td style="text-align:center">$lt</td>
+<td style="text-align:right">db.col.find(&amp;#123age: {$lt:18}&amp;#125)</td>
+<td style="text-align:right">where age &lt; 18</td>
+<td></td>
+</tr>
+<tr>
+<td>小于或等于</td>
+<td style="text-align:center">$lte</td>
+<td style="text-align:right">db.col.find(&amp;#123age: {$lte:18}&amp;#125)</td>
+<td style="text-align:right">where age &lt;= 18</td>
+<td></td>
+</tr>
+<tr>
+<td>大于</td>
+<td style="text-align:center">$gt</td>
+<td style="text-align:right">db.col.find(&amp;#123age: {$gt:18}&amp;#125)</td>
+<td style="text-align:right">where age &gt; 18</td>
+<td></td>
+</tr>
+<tr>
+<td>大于或等于</td>
+<td style="text-align:center">$gte</td>
+<td style="text-align:right">db.col.find(&amp;#123age: {$gte:18}&amp;#125)</td>
+<td style="text-align:right">where age &gt;= 18</td>
+<td></td>
+</tr>
+<tr>
+<td>不等于</td>
+<td style="text-align:center">$ne</td>
+<td style="text-align:right">db.col.find(&amp;#123age: {$ne:18}&amp;#125)</td>
+<td style="text-align:right">where age != 18</td>
+</tr>
+</tbody>
+</table>
+<h3 id="在node中操作MongoDB"><a href="#在node中操作MongoDB" class="headerlink" title="在node中操作MongoDB"></a>在node中操作MongoDB</h3><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mongodb</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  nodejs操作mongodb依赖与一个模块： mongodb</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//1. 导入</span></span><br><span class="line"><span class="comment">//mongodb的客户端，可以连接到mongodb的服务器</span></span><br><span class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">"mongodb"</span>).MongoClient;</span><br><span class="line"><span class="comment">//2. 连接mongodb的服务器</span></span><br><span class="line"><span class="comment">//连接mongodb服务器的一个地址</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">'mongodb://localhost:27017'</span>;</span><br><span class="line"><span class="comment">//需要连接的mongodb的数据库</span></span><br><span class="line"><span class="comment">//var dbName = "letao";</span></span><br><span class="line"><span class="comment">//参数1： mongodb服务器的地址</span></span><br><span class="line"><span class="comment">//参数2：回调函数</span></span><br><span class="line">  <span class="comment">//err:表示连接失败的信息</span></span><br><span class="line">  <span class="comment">//client：连接成功的一个对象</span></span><br><span class="line">MongoClient.connect(url, <span class="function"><span class="keyword">function</span>(<span class="params">err, client</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">"连接服务器失败"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//表示需要使用乐淘数据库  use letao</span></span><br><span class="line">  <span class="keyword">var</span> db = client.db(<span class="string">"letao"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//1. 查询数据</span></span><br><span class="line">  <span class="comment">//db.user.find();</span></span><br><span class="line">  db.collection(<span class="string">"user"</span>).find().toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">"获取数据失败"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//关闭数据库</span></span><br><span class="line">  client.close();</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="数据增删改查"><a href="#数据增删改查" class="headerlink" title="数据增删改查"></a>数据增删改查</h4><ul>
+<li>增加数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加单条</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .insertOne(&#123;<span class="attr">name</span>:<span class="string">"jim1"</span>, <span class="attr">age</span>: <span class="number">12</span>, <span class="attr">gender</span>:<span class="string">"女"</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, info</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(info.result.ok === <span class="number">1</span>)&#123;&#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"数据插入成功"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加多条数据</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .insertMany([ &#123;<span class="string">"name"</span>:<span class="string">"hucc"</span>, <span class="string">"age"</span>:<span class="number">18</span>, <span class="attr">gender</span>:<span class="string">"男"</span>&#125;, &#123;<span class="string">"name"</span>:<span class="string">"hcc"</span>, <span class="string">"age"</span>:<span class="number">17</span>, <span class="attr">gender</span>:<span class="string">"女"</span>&#125; ], <span class="function"><span class="keyword">function</span>(<span class="params">err, info</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(info.result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除单条数据</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .deleteOne(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>:<span class="number">5</span>&#125;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, info</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(info.result.ok === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"数据删除成功"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除多条数据</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .deleteMany(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>:<span class="number">5</span>&#125;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, info</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(info.result.ok === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"数据删除成功"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改单条数据</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .updateOne(&#123;<span class="attr">name</span>: <span class="string">"tom"</span>&#125;, &#123;<span class="attr">$set</span>: &#123;<span class="attr">gender</span>:<span class="string">"女"</span>&#125;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, info</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(info.result.ok === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"数据修改成功了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改多条数据</span></span><br><span class="line">db</span><br><span class="line">    .collection(<span class="string">"users"</span>)</span><br><span class="line">    .updateMany(&#123; <span class="attr">name</span>: <span class="string">"tom"</span> &#125;, &#123; <span class="attr">$set</span>: &#123; <span class="attr">gender</span>: <span class="string">"不详"</span> &#125; &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, info</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (info.result.ok === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"数据修改成功了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line">db.collection(<span class="string">"users"</span>).find(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>:<span class="number">20</span>&#125;&#125;).toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">"获取数据失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">db.collection(<span class="string">"user"</span>).findOne(&#123;<span class="attr">name</span>:<span class="string">"小鲜肉"</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"查询单个数据失败了"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ObjectID"><a href="#ObjectID" class="headerlink" title="ObjectID"></a>ObjectID</h4><p>在MongoDB中，自动生成的_id，是一个ObjectID；</p>
+<p>如果从数据库中获取的是一个带引号的字符串：”5b442e14d5827d4f6bbcba15”；</p>
+<p>实际为’”5b442e14d5827d4f6bbcba15”‘ ；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ObjectID = <span class="built_in">require</span>(<span class="string">"mongodb"</span>).ObjectID;</span><br><span class="line"><span class="keyword">var</span> id = <span class="keyword">new</span> ObjectID(可以是<span class="number">24</span>字节十六进制字符串，<span class="number">12</span>字节二进制字符串或数字。);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在MongoDB中，自动生成的_id，是一个ObjectID，并不是一个字符串或者数字；</li>
+<li><code>var ObjectID = require(&quot;mongodb&quot;).ObjectID;</code></li>
+<li>可以通过<code>new ObjectID(id);</code>来创建一个ObjectID；</li>
+<li>参数id可以是24字节十六进制字符串，12字节二进制字符串或数字。</li>
+</ul>
+<h2 id="事件相关"><a href="#事件相关" class="headerlink" title="事件相关"></a>事件相关</h2><p>【<strong>Node.js中on和jQuery中的on没有关系；</strong>】</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"><i class="fa fa-tag"></i> MongoDB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-cn/2017/12/31/Node-js/" rel="next" title="Node.js">
+                <i class="fa fa-chevron-left"></i> Node.js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-cn/2018/03/18/Vue/" rel="prev" title="Vue">
+                Vue <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Shiyi_" />
+            
+              <p class="site-author-name" itemprop="name">Shiyi_</p>
+              <p class="site-description motion-element" itemprop="description">凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yidianyuwen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Shiyidejavu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/DejavuShiyi" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB"><span class="nav-number">1.</span> <span class="nav-text">MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据库类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB简介"><span class="nav-number">1.2.</span> <span class="nav-text">MongoDB简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL简介"><span class="nav-number">1.3.</span> <span class="nav-text">NoSQL简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB的安装"><span class="nav-number">1.4.</span> <span class="nav-text">MongoDB的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#windows版本"><span class="nav-number">1.4.1.</span> <span class="nav-text">windows版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mac版本"><span class="nav-number">1.4.2.</span> <span class="nav-text">mac版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB的启动与连接"><span class="nav-number">1.5.</span> <span class="nav-text">MongoDB的启动与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库存储路径的说明"><span class="nav-number">1.6.</span> <span class="nav-text">数据库存储路径的说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB终端操作"><span class="nav-number">1.7.</span> <span class="nav-text">MongoDB终端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库操作"><span class="nav-number">1.7.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mongodb术语"><span class="nav-number">1.7.2.</span> <span class="nav-text">mongodb术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据（文档）"><span class="nav-number">1.7.3.</span> <span class="nav-text">插入数据（文档）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">1.7.4.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改数据"><span class="nav-number">1.7.5.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据"><span class="nav-number">1.7.6.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MondoDB-查询语句"><span class="nav-number">1.7.7.</span> <span class="nav-text">MondoDB 查询语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在node中操作MongoDB"><span class="nav-number">1.8.</span> <span class="nav-text">在node中操作MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据增删改查"><span class="nav-number">1.8.1.</span> <span class="nav-text">数据增删改查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectID"><span class="nav-number">1.8.2.</span> <span class="nav-text">ObjectID</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件相关"><span class="nav-number">2.</span> <span class="nav-text">事件相关</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright"><span itemprop="copyrightYear"></span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiyi_</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
