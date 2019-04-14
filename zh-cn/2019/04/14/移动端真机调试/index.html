@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 7px #1E92FB, 0 0 4px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: transparent;    /*上边框颜色*/
+        border-left-color: transparent;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yi.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="移动Web," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="移动端调试困难很多时候，我们在进行移动端开发时，都是先在PC端使用手机模拟器进行调试，没有问题后，我们才会在手机端的浏览器进行测试，这个时候，如果没有出现问题，皆大欢喜。但是一旦出现问题，我们就很难解决，因为缺乏可视化的界面。不似在PC端，我们能直观的去改变样式，或者是进行断点调试。有时，在移动端我们不得不借助于alert来调试，但是这样的调试方法效率极其低下，很多时候，都是靠经验，或者是靠排除法">
+<meta name="keywords" content="移动Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端真机调试">
+<meta property="og:url" content="http://yoursite.com/zh-cn/2019/04/14/移动端真机调试/index.html">
+<meta property="og:site_name" content="嗯，一点余温">
+<meta property="og:description" content="移动端调试困难很多时候，我们在进行移动端开发时，都是先在PC端使用手机模拟器进行调试，没有问题后，我们才会在手机端的浏览器进行测试，这个时候，如果没有出现问题，皆大欢喜。但是一旦出现问题，我们就很难解决，因为缺乏可视化的界面。不似在PC端，我们能直观的去改变样式，或者是进行断点调试。有时，在移动端我们不得不借助于alert来调试，但是这样的调试方法效率极其低下，很多时候，都是靠经验，或者是靠排除法">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-14T12:36:43.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端真机调试">
+<meta name="twitter:description" content="移动端调试困难很多时候，我们在进行移动端开发时，都是先在PC端使用手机模拟器进行调试，没有问题后，我们才会在手机端的浏览器进行测试，这个时候，如果没有出现问题，皆大欢喜。但是一旦出现问题，我们就很难解决，因为缺乏可视化的界面。不似在PC端，我们能直观的去改变样式，或者是进行断点调试。有时，在移动端我们不得不借助于alert来调试，但是这样的调试方法效率极其低下，很多时候，都是靠经验，或者是靠排除法">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/zh-cn/2019/04/14/移动端真机调试/"/>
+
+
+
+
+
+  <title>移动端真机调试 | 嗯，一点余温</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?01076d8c1ebce03ed408a2a36a23aa85";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嗯，一点余温</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Shiyi_</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zh-cn/2019/04/14/移动端真机调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiyi_">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗯，一点余温">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端真机调试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-14T20:36:43+08:00">
+                2019-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动Web/" itemprop="url" rel="index">
+                    <span itemprop="name">移动Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="移动端调试困难"><a href="#移动端调试困难" class="headerlink" title="移动端调试困难"></a>移动端调试困难</h2><p>很多时候，我们在进行移动端开发时，都是先在PC端使用手机模拟器进行调试，没有问题后，我们才会在手机端的浏览器进行测试，这个时候，如果没有出现问题，皆大欢喜。但是一旦出现问题，我们就很难解决，因为缺乏可视化的界面。不似在PC端，我们能直观的去改变样式，或者是进行断点调试。有时，在移动端我们不得不借助于alert来调试，但是这样的调试方法效率极其低下，很多时候，都是靠经验，或者是靠排除法。甚至，我们不得不归结为是浏览器的实现问题。</p>
+<p>那么，有什么什么方法，能够让我们调试移动端的适配的时候，像调试PC端一样直观呢？本文旨在为你提供移动端的调试方法，希望能够为你打开新的一扇门。</p>
+<p>本文会给出三种真机调试方法，你可以选择自己最喜欢的一款~</p>
+<h2 id="移动端真机调试方法"><a href="#移动端真机调试方法" class="headerlink" title="移动端真机调试方法"></a>移动端真机调试方法</h2><ul>
+<li>chrome真机调试</li>
+<li>weinre调试</li>
+<li>spy-debugger调试</li>
+</ul>
+<p>简单说明一下每一种方式的优缺点：</p>
+<ul>
+<li>第一种：chrome真机调试，有一个很大的局限性就是，只能调试手机端的chrome浏览器，对于UC，QQ这些浏览器均不适用，因此在调试兼容问题时，帮助不大，但是最大的优点是: 简单快捷。</li>
+<li>第二种：weinre调试方式，安装和适用不复杂，适用于全平台的调试，即任何手机的任何浏览器皆可以调试，不过需要手机和电脑在同一个网段下。</li>
+<li>第三种：spy-debugger，安装稍微复杂一点，spy-debugger集成了weinre，不过还增加了抓包工具，使用最为方便。</li>
+</ul>
+<p>下面我们开始具体介绍如何使用这三种调试方法。</p>
+<ul>
+<li>1.chrome真机调试</li>
+</ul>
+<p>手机端下载好chrome浏览器，使用USB连接到PC，打开手机的USB调试模式。</p>
+<p>然后在PC端打开chrome浏览器，在地址栏输入：chrome://inspect. 勾选”discovery usb device”。然后在手机端浏览网页，就可以看到如下的页面，点击inspect，进行调试(鉴于我的工作电脑是加了域的，因为并不能使用这个方式，如果有和我一样情况的童鞋，可以考虑使用另外两种调试方式)。</p>
+<ul>
+<li>2.wenire真机调试</li>
+</ul>
+<p>Weinre(WebInspector Remote)是一款基于Web Inspector(Webkit)的远程调试工具，借助于网络，可以在PC上直接调试运行在移动设备上的远程页面。</p>
+<p>本地服务器：可以使用http-server、tomcat等，也可以使用编译器集成的服务。</p>
+<p>weinre安装</p>
+<p>全局安装：</p>
+<p>npm install<br>–<br>g weinre</p>
+<p>局部安装：</p>
+<p>npm install weinre</p>
+<p>启动：</p>
+<h2 id="weinre"><a href="#weinre" class="headerlink" title="weinre "></a>weinre </h2><p>httpPort<br>8090</p>
+<p>–<br>boundHost<br>-<br>all<br>-</p>
+<p>如果是局部安装的话，需要在前面加上 node_modules/.bin/。</p>
+<p>相信前端的童鞋都会用npm包管理工具，对于这个工具，我就不展开了，如果没有安装npm的，自行安装。</p>
+<p>weinew启动参数说明</p>
+<p>httpPort：设置Wninre使用的端口号，默认是8080。</p>
+<p>boundHost：[hostname | Ip | -all-]: 默认是 ‘localhost’。</p>
+<p>debug [true | false]：这个选项与–verbose类似， 会输出更多的信息。默认为false。</p>
+<p>readTimeout [seconds]：Server发送信息到Target/Client的超时时间， 默认为5s。</p>
+<p>deathTimeout [seconds]：默认为3倍的readTimeout， 如果页面超过这个时间都没有任何响应， 那么就会断开连接。</p>
+<p>8080端口使用情况较多，所以我选择了指定8090端口。</p>
+<p>启动了weinre之后，我们在浏览器中输入localhost:8090.显示如下界面，表示已经启动成功。</p>
+<p>点击”debug client user interface”，进入调试页面。</p>
+<p>当前的targets中内容为空。</p>
+<p>现在，我们需要做另外一点操作，在我们要调试的页面中，增加一个脚本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://localhost:8090/target/target-script-min.js#anonymous"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>记住将localhost换成你的IP地址.</p>
+<p>然后，我们在本地启动一个服务器，可以是IDE集成的服务器，或者是http-server,我使用的是http-server.启动之后，我们在手机端访问要调试的网页。然后就会发现targets下面增加了记录。</p>
+<p>这时，我们就可以点击Elements进行调试。</p>
+<p>修改样式时，会在手机端即时生效，并且也可以查看控制台信息，唯一一点就是，不能进行断点调试。</p>
+<p>最后，在调试结束之后，别忘记删除嵌入的script。</p>
+<p>除了这种方法之后，还介绍了在手机端保存一段Js代码，在需要调试某个页面时，点击执行JS,但是现在浏览器为了安全起见，已经不再支持此方法。默认的方法是搜索，而非执行，所以不可取。</p>
+<p>3.spy-debugger真机调试<br>最后，再介绍一下spy-debugger方法。用这个方法，我们不再需要自己增加和删除脚本。</p>
+<p>Spy-debugger内部集成了weinre，通过代理的方式拦截所有html自动注入weinre所需的js代码。简化了weinre需要给每个调试的页面添加js代码。spy-debugger原理是拦截所有html页面请求注入weinre所需要的js代码。让页面调试更加方便。</p>
+<p>特性：</p>
+<p>页面调试＋抓包</p>
+<p>操作简单</p>
+<p>支持HTTPS。</p>
+<p>spy-debugger内部集成了weinre、node-mitmproxy、AnyProxy。</p>
+<p>自动忽略原生App发起的https请求，只拦截webview发起的https请求。对使用了SSL pinning技术的原生App不造成任何影响。</p>
+<p>可以配合其它代理工具一起使用(默认使用AnyProxy)</p>
+<p>Spydebugger安装与使用</p>
+<p>全局安装：</p>
+<p>npm install<br>–<br>g spy<br>-<br>debugger</p>
+<p>启动：</p>
+<p>spy<br>-<br>debugger</p>
+<p>设置手机的HTTP代理：</p>
+<p>代理的地址为PC的IP地址，代理的端口为spy-debugger的启动端口(默认端口为：9888)默认端口是 9888。</p>
+<p>如果要指定端口： spy-debugger–p8888。</p>
+<p>Android设置步骤：设置 - WLAN - 长按选中网络 - 修改网络 - 高级 - 代理设置 - 手动。</p>
+<p>iOS设置代理步骤：设置 - 无线局域网 - 选中网络 - HTTP代理手动。</p>
+<p>手机安装证书(node-mitmproxy CA根证书)：</p>
+<p>第一步：生成证书</p>
+<p>生成CA根证书，根证书生成在 /Users/XXX/node-mitmproxy/ 目录下(Mac)。</p>
+<pre><code>spy
+</code></pre><p>-<br>debugger<br> initCA</p>
+<p>第二步：安装证书</p>
+<p>把node-mitmproxy文件夹下的 node-mitmproxy.ca.crt 传到手机上，点击安装即可。</p>
+<p>Spy-debugger启动界面，同样，在手机端刷新页面之后，targets中会有记录。</p>
+<p>以我曾经做的京豆游戏的页面展示一下效果，当我们在手机上选中一个元素时，可以在电脑上看到相应的信息，这样我们就可以看出有可能是什么样式不兼容导致了UI的异常了，同样，还可以在控制台中看到JS的log信息，对于移动端调试来说非常有帮助。</p>
+<p>总结<br>1、chrome inspect应用场景有限。</p>
+<p>2、weinre安装简单，使用过程中需要增加和删除script，如果调试页面很多的情况下，不适用。</p>
+<p>3、spy-debugger安装略复杂，但是使用过程非常愉快。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动Web/" rel="tag"><i class="fa fa-tag"></i> 移动Web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-cn/2019/04/14/封装axios请求/" rel="next" title="封装公共的axios请求">
+                <i class="fa fa-chevron-left"></i> 封装公共的axios请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-cn/2019/04/14/vue指令实现按钮重复点击/" rel="prev" title="自定义按钮指令">
+                自定义按钮指令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Shiyi_" />
+            
+              <p class="site-author-name" itemprop="name">Shiyi_</p>
+              <p class="site-description motion-element" itemprop="description">凭借自己的意志的话，罪与罚也都是全部由自己产生的，这些，都是理想的一部分；但，如果那些都是借来的，你所宣扬的就全都是空想。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yidianyuwen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Shiyidejavu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/DejavuShiyi" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端调试困难"><span class="nav-number">1.</span> <span class="nav-text">移动端调试困难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端真机调试方法"><span class="nav-number">2.</span> <span class="nav-text">移动端真机调试方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weinre"><span class="nav-number">3.</span> <span class="nav-text">weinre </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiyi_</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
